@@ -24,6 +24,22 @@
         <!-- Social Icons -->
         <div class="navbar-brand social">{% include social.liquid %}</div>
       {% endif %}
+      {% if site.cv_pdf %}
+        <div class="navbar-brand social">
+            <a
+              {% if site.cv_pdf contains '://' %}
+                href="{{ site.cv_pdf }}"
+              {% else %}
+                href="{{ site.cv_pdf | prepend: 'assets/pdf/' | relative_url }}"
+              {% endif %}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="float-right"
+            >
+              <i class="fa-solid fa-file-pdf"></i>
+            </a>
+        </div>
+      {% endif %}
       <!-- Navbar Toggle -->
       <button
         class="navbar-toggler collapsed ml-auto"
