@@ -2,13 +2,13 @@
 layout: about
 title: about
 permalink: /
-subtitle: Masters student at Saarland University
+subtitle: Masters student, Language Science and Technology
 
 profile:
   align: right
   image: profile-picture-me.jpg
   image_circular: false # crops the image to make it circular
-  more_info:
+  more_info: Saarbrücken, Germany
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
@@ -17,12 +17,12 @@ publications: true
 announcements:
   enabled: true # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  limit: # leave blank to include all the news in the `_news` folder
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am Sasha (short for Aleksandra) Bakalova, Masters student in Language Science and Technology at [Saarland University](https://www.uni-saarland.de/en/home.html) and a Research Assistant at [LaCoCo Lab](https://lacoco-lab.github.io/home/). I did my undergraduate in Applied Mathematics and Computer Science at [HSE University](https://www.hse.ru/en/).
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
-
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
-
+I am interested in understanding deep learning models, specifically LLMs. A broad list of topics that I find fascinating is:
+- mechanistic interpretability and finding what are the mechanisms that pretrained models use to reach their prediction;
+- understanding the difference between architectures used for language modelling, what are their inherent capabilities and limitations;
+- describing various phenomena observed in LLMs, such as ability to learn in-context or presence of positional bias and attention sinks.
