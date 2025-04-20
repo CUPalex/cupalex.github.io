@@ -38,4 +38,11 @@ ninja.data = [{
         handler: () => {
           window.open("https://scholar.google.com/citations?user=8LlE4kUAAAAJ", "_blank");
         },
+      },{
+        id: 'social-x',
+        title: 'X',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://twitter.com/abakalova13175", "_blank");
+        },
       },];
