@@ -14,11 +14,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather.html";
-            },},{id: "news-i-started-my-masters-in-language-science-and-technology-at-saarland-university",
-          title: 'I started my Masters in Language Science and Technology at Saarland University!',
+            },},{id: "news-started-my-masters-in-language-science-and-technology-at-saarland-university",
+          title: 'Started my Masters in Language Science and Technology at Saarland University.',
           description: "",
-          section: "News",},{id: "news-i-started-my-job-as-a-research-assistant-at-lacoco-lab-with-dr-michael-hahn-very-excited-to-work-on-llm-interpretability-with-my-amazing-colleagues",
-          title: 'I started my job as a Research Assistant at LaCoCo Lab with Dr....',
+          section: "News",},{id: "news-started-a-job-as-a-research-assistant-at-lacoco-lab-with-dr-michael-hahn-very-excited-to-work-on-llm-interpretability-with-such-amazing-colleagues",
+          title: 'Started a job as a Research Assistant at LaCoCo Lab with Dr. Michael...',
           description: "",
           section: "News",},{id: "news-started-my-erasmus-semester-at-charles-university-in-prague-in-love-with-the-city",
           title: 'Started my Erasmus semester at Charles University in Prague. In love with the...',
