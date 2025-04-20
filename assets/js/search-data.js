@@ -14,8 +14,17 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather.html";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
+            },},{id: "news-i-started-my-masters-in-language-science-and-technology-at-saarland-university",
+          title: 'I started my Masters in Language Science and Technology at Saarland University!',
+          description: "",
+          section: "News",},{id: "news-i-started-my-job-as-a-research-assistant-at-lacoco-lab-with-dr-michael-hahn-very-excited-to-work-on-llm-interpretability-with-my-amazing-colleagues",
+          title: 'I started my job as a Research Assistant at LaCoCo Lab with Dr....',
+          description: "",
+          section: "News",},{id: "news-started-my-erasmus-semester-at-charles-university-in-prague-in-love-with-the-city",
+          title: 'Started my Erasmus semester at Charles University in Prague. In love with the...',
+          description: "",
+          section: "News",},{id: "news-our-preprint-on-understanding-in-context-learning-in-gemma2-2b-is-on-arxiv-we-found-a-circuit-in-the-model-that-performs-in-context-learning-and-interpreted-the-information-flow-in-it-see-this-x-post-for-a-short-explanation",
+          title: 'Our preprint on understanding in-context learning in Gemma2-2b is on arxiv! We found...',
           description: "",
           section: "News",},{
         id: 'social-email',
