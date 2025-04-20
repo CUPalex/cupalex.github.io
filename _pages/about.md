@@ -2,13 +2,13 @@
 layout: about
 title: about
 permalink: /
-subtitle: Masters student in Language Science and Technology
+subtitle: <i class="fa-solid fa-location-dot"></i> Saarbrücken, Germany
 
 profile:
   align: right
   image: profile-picture-me.jpg
   image_circular: false # crops the image to make it circular
-  more_info: <i class="fa-solid fa-location-dot"></i> Saarbrücken, Germany
+  more_info:
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
