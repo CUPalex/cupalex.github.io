@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I started my job as a Research Assistant at [LaCoCo Lab](https://lacoco-lab.github.io/home/) with [Dr. Michael Hahn](https://www.mhahn.info). Very excited to work on LLM interpretability with my amazing colleagues!
+Started a job as a Research Assistant at [LaCoCo Lab](https://lacoco-lab.github.io/home/) with [Dr. Michael Hahn](https://www.mhahn.info). Very excited to work on LLM interpretability with such amazing colleagues!

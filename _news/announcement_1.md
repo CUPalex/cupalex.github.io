@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I started my Masters in Language Science and Technology at [Saarland University](https://www.uni-saarland.de/en/home.html)!
+Started my Masters in Language Science and Technology at [Saarland University](https://www.uni-saarland.de/en/home.html).
