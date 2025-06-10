@@ -22,7 +22,10 @@ announcements:
 
 I am Sasha (short for Aleksandra) Bakalova, Masters student in Language Science and Technology at [Saarland University](https://www.uni-saarland.de/en/home.html) and a Research Assistant at [LaCoCo Lab](https://lacoco-lab.github.io/home/). I did my undergraduate in Applied Mathematics and Computer Science at [HSE University](https://www.hse.ru/en/).
 
-My research interests lie in the direction of understanding deep learning models, specifically LLMs. Here's a broad list of topics that fascinate me:
-- Mechanistic interpretability, uncovering the mechanisms that pretrained models use to reach their prediction;
-- Understanding the difference between architectures used for language modelling, what are their inherent capabilities and limitations;
-- Describing various phenomena observed in LLMs, such as ability to learn in-context, positional bias or attention sinks.
+My research interests lie in the direction of interpretability, deep learning theory, and understanding what makes modern LLMs so powerful. Here's a broad and incomplete list of topics that fascinate me:
+- Mechanistic interpretability, gaining empirical evidence about the mechanisms that pretrained models use to reach their prediction;
+- Understanding the difference between architectures, what are their inherent capabilities and limitations;
+- Describing and formalizing various phenomena observed in LLMs, such as ability to learn in-context or positional bias;
+- I enthusiastically look at developments in intersection of neuroscience and AI: there are many amazing discoveries awaiting!
+
+:sparkles: I am currently **looking for a PhD**! :sparkles: If you think it might be nice to work with me, please drop me an email!
