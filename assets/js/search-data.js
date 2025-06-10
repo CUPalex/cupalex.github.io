@@ -26,6 +26,9 @@ ninja.data = [{
           section: "News",},{id: "news-our-preprint-on-understanding-in-context-learning-in-gemma2-2b-is-on-arxiv-we-found-a-circuit-in-the-model-that-performs-in-context-learning-and-interpreted-the-information-flow-in-it-see-this-x-post-for-a-short-explanation",
           title: 'Our preprint on understanding in-context learning in Gemma2-2b is on arxiv! We found...',
           description: "",
+          section: "News",},{id: "news-born-a-transformer-always-a-transformer-new-preprint-is-on-arxiv-we-try-to-bring-theory-closer-to-practice-and-answer-a-question-how-do-theoretical-limitations-of-transformers-manifest-in-pre-trained-models-see-yana-s-x-post-for-a-short-explanation",
+          title: 'Born a Transformer – Always a Transformer?: new preprint is on arxiv! We...',
+          description: "",
           section: "News",},{
         id: 'social-email',
         title: 'email',
