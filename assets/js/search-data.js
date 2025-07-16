@@ -29,6 +29,9 @@ ninja.data = [{
           section: "News",},{id: "news-born-a-transformer-always-a-transformer-new-preprint-is-on-arxiv-we-try-to-bring-theory-closer-to-practice-and-answer-a-question-how-do-theoretical-limitations-of-transformers-manifest-in-pre-trained-models-see-yana-s-x-post-for-a-short-explanation",
           title: 'Born a Transformer – Always a Transformer?: new preprint is on arxiv! We...',
           description: "",
+          section: "News",},{id: "news-our-work-on-understanding-in-context-learning-is-accepted-to-colm-2025",
+          title: 'Our work on understanding in-context learning is accepted to COLM 2025!',
+          description: "",
           section: "News",},{
         id: 'social-email',
         title: 'email',
