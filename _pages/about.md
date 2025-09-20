@@ -20,12 +20,8 @@ announcements:
   limit: # leave blank to include all the news in the `_news` folder
 ---
 
-I am Sasha (short for Aleksandra) Bakalova, Masters student in Language Science and Technology at [Saarland University](https://www.uni-saarland.de/en/home.html) and a Research Assistant at [LaCoCo Lab](https://lacoco-lab.github.io/home/). I did my undergraduate in Applied Mathematics and Computer Science at [HSE University](https://www.hse.ru/en/).
+I am Sasha (short for Aleksandra) Bakalova, Masters student in Language Science and Technology at [Saarland University](https://www.uni-saarland.de/en/home.html) and a Research Assistant at [LaCoCo Lab](https://lacoco-lab.github.io/home/). I did my undergraduate in Applied Mathematics and Computer Science at [HSE University](https://www.hse.ru/en/), and learned a lot about deep learning at [Yandex School of Data Analysis](https://dataschool.yandex.com).
 
-My research interests lie in the direction of interpretability, deep learning theory, and understanding what makes modern LLMs so powerful. I'd be excited to work on anything that brings us closer to understanding what hides behind those matrix multiplications, and how we can use it to build better models and use existing models in better ways. For example, here's a broad and incomplete list of topics that fascinate me:
-- Mechanistic interpretability, gaining empirical evidence about the mechanisms that pretrained models use to reach their prediction;
-- Understanding the difference between architectures, what are their inherent capabilities and limitations;
-- Describing and formalizing various phenomena observed in LLMs, such as ability to learn in-context or positional bias;
-- I enthusiastically look at developments in intersection of neuroscience and AI: there are many amazing discoveries awaiting!
+My research interests lie in the direction of interpretability, deep learning theory, and understanding what makes modern deep learning models so powerful. I'd be excited to work on anything that brings us closer to understanding what hides behind those matrix multiplications, how we can use it to build better models and use existing models in better ways.
 
-If you wish to talk about any of these, feel free to drop me an email!
+If you wish to chat, feel free to drop me an email!

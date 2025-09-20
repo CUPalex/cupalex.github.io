@@ -27,7 +27,7 @@ back_to_top: true # set to false to disable the back to top button
 # CV
 # -----------------------------------------------------------------------------
 
-cv_pdf: CV_apr_9.pdf
+# cv_pdf: CV_apr_9.pdf
 
 # -----------------------------------------------------------------------------
 # Theme
