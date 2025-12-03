@@ -38,6 +38,9 @@ ninja.data = [{
           section: "News",},{id: "news-attended-eeml-2025-got-a-best-poster-award-walking-around-sarajevo-getting-inspired-by-the-amazing-people-there-and-their-work-it-was-a-lot-of-fun",
           title: 'Attended EEML 2025, got a best poster award! Walking around Sarajevo, getting inspired...',
           description: "",
+          section: "News",},{id: "news-excited-to-start-a-new-chapter-as-a-phd-student-at-rtg-neuroexplicit-models-of-language-vision-and-action-under-the-supervision-of-prof-michael-hahn",
+          title: 'Excited to start a new chapter as a PhD student at RTG ``Neuroexplicit...',
+          description: "",
           section: "News",},{
         id: 'social-email',
         title: 'email',
