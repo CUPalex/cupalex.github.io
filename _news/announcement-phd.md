@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Excited to start a new chapter as a PhD student at [RTG ``Neuroexplicit Models of Language, Vision, and Action''](https://www.neuroexplicit.org) under the supervision of [Prof. Michael Hahn](https://www.mhahn.info)!
+Excited to start a new chapter as a PhD student at the [RTG ''Neuroexplicit Models of Language, Vision, and Action''](https://www.neuroexplicit.org) under the supervision of [Prof. Michael Hahn](https://www.mhahn.info)!
