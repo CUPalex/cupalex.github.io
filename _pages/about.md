@@ -20,7 +20,7 @@ announcements:
   limit: # leave blank to include all the news in the `_news` folder
 ---
 
-I am Sasha (short for Aleksandra) Bakalova, Masters student in Language Science and Technology at [Saarland University](https://www.uni-saarland.de/en/home.html) and a Research Assistant at [LaCoCo Lab](https://lacoco-lab.github.io/home/). I did my undergraduate in Applied Mathematics and Computer Science at [HSE University](https://www.hse.ru/en/), and learned a lot about deep learning at [Yandex School of Data Analysis](https://dataschool.yandex.com).
+I am Sasha (short for Aleksandra) Bakalova, PhD student at [Saarland University](https://www.uni-saarland.de/en/home.html) supervised by [Prof. Michael Hahn](https://lacoco-lab.github.io/home/), and a member of [RTG ``Neuroexplicit Models of Language, Vision, and Action''](https://www.neuroexplicit.org). I did my Masters in Language Science and Technology at Saarland University, and my undergraduate in Applied Mathematics and Computer Science at [HSE University](https://www.hse.ru/en/). I learned a lot about deep learning at [Yandex School of Data Analysis](https://dataschool.yandex.com).
 
 My research interests lie in the direction of interpretability, deep learning theory, and understanding what makes modern deep learning models so powerful. I'd be excited to work on anything that brings us closer to understanding what hides behind those matrix multiplications, how we can use it to build better models and use existing models in better ways.
 
