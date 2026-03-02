@@ -1,0 +1,18 @@
+1. new_token = element_wise_op(token) 	  # layer 0 mlp
+2. s1 = select(q=new_token, k=pos, op=(q==k))	# layer 1 head 0
+3. s2 = select(q=pos, k=new_token, op=(q==k))	# layer 1 head 0
+4. s3 = select(q=pos, k=pos, op=\circled{a})	# layer 1 head 0
+5. s4 = select(k=token, op=\circled{b})
+6. s5 = select(k=new_token, op=\circled{c})
+7. s6 = select(k=pos, op=\circled{d})
+8. a1 = aggregate(s=s1+s2+s3+s4+s5+s6, v=token) 	  # layer 1 head 0
+9. a2 = aggregate(s=s1+s2+s3+s4+s5+s6, v=pos) 	  # layer 1 head 0
+10. new_a1 = element_wise_op(a1) 	  # layer 1 mlp
+11. logits1 = project(inp=pos, op=\circled{e})
+12. logits2 = project(inp=new_a1, op=(inp==out))
+13. logits3 = project(inp=a2, op=\circled{f})
+14. logits4 = project(inp=pos, op=\circled{g})
+15. prediction = sigmoid(logits1+
+			logits2+
+			logits3+
+			logits4)

@@ -1,0 +1,6 @@
+1. a1 = aggregate(s=[], v=pos) 	  # layer 0 head 1
+2. m1 = mlp(pos+a1) 	  # layer 0 mlp
+3. logits1 = project(inp=m1, op=(inp==out))
+4. logits2 = project(op=\circled{a})
+5. prediction = sigmoid(logits1+
+			logits2)

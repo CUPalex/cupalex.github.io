@@ -1,0 +1,3 @@
+1. new_token = element_wise_op(token) 	  # layer 0 mlp
+2. logits1 = project(inp=new_token, op=(inp==out))
+3. prediction = softmax(logits1)

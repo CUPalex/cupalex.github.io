@@ -1,0 +1,77 @@
+1. s1 = select(q=token, k=token, op=\circled{a})	# layer 0 head 0
+2. s2 = select(q=pos, k=pos, op=\circled{b})	# layer 0 head 0
+3. a1 = aggregate(s=s1+s2, v=token) 	  # layer 0 head 0
+4. a2 = aggregate(s=s1+s2, v=pos) 	  # layer 0 head 0
+5. s3 = select(q=token, k=token, op=\circled{c})	# layer 0 head 1
+6. s4 = select(q=pos, k=pos, op=\circled{d})	# layer 0 head 1
+7. a3 = aggregate(s=s3+s4, v=token) 	  # layer 0 head 1
+8. a4 = aggregate(s=s3+s4, v=pos) 	  # layer 0 head 1
+9. sharpened_pos = sharpen(pos) 	  # layer 0 mlp
+10. s5 = select(q=token, k=token, op=(uniform selection),
+		special_op=(k==SEP))	# layer 1 head 0
+11. s6 = select(q=token, k=sharpened_pos, op=(uniform selection),
+		special_op=(k==q))	# layer 1 head 0
+12. s7 = select(q=sharpened_pos, k=token, op=\circled{g})	# layer 1 head 0
+13. s8 = select(q=sharpened_pos, k=sharpened_pos, op=\circled{h})	# layer 1 head 0
+14. s9 = select(q=sharpened_pos, k=a1, op=(k==q))	# layer 1 head 0
+15. s10 = select(q=a1, k=sharpened_pos, op=(k==q-2),
+		special_op=(uniform selection))	# layer 1 head 0
+16. a5 = aggregate(s=s5+s6+s7+s8+s9+s10, v=token) 	  # layer 1 head 0
+17. a6 = aggregate(s=s5+s6+s7+s8+s9+s10, v=token) 	  # layer 1 head 0
+18. s11 = select(q=token, k=token, op=(uniform selection),
+		special_op=(k==q-1))	# layer 1 head 1
+19. s12 = select(q=token, k=token, op=(uniform selection),
+		special_op=(k==BOS))	# layer 1 head 1
+20. s13 = select(q=sharpened_pos, k=token, op=(k==q-1))	# layer 1 head 1
+21. s14 = select(q=sharpened_pos, k=sharpened_pos, op=\circled{n})	# layer 1 head 1
+22. s15 = select(q=sharpened_pos, k=a4, op=(k is last))	# layer 1 head 1
+23. a7 = aggregate(s=s11+s12+s13+s14+s15, v=token) 	  # layer 1 head 1
+24. a8 = aggregate(s=s11+s12+s13+s14+s15, v=a1) 	  # layer 1 head 1
+25. a9 = aggregate(s=s11+s12+s13+s14+s15, v=sharpened_pos) 	  # layer 1 head 1
+26. a10 = aggregate(s=s11+s12+s13+s14+s15, v=a1) 	  # layer 1 head 1
+27. hardened_a5 = harden(a5) 	  # layer 1 mlp
+28. sharpened_a8 = sharpen(a8) 	  # layer 1 mlp
+29. logits1 = project(inp=token, op=\circled{p})
+30. logits2 = project(inp=pos, op=\circled{q})
+31. logits3 = project(inp=a1, op=\circled{r})
+32. logits4 = project(inp=a5, op=\circled{s})
+33. logits5 = project(inp=a6, op=\circled{t})
+34. logits6 = project(inp=a7, op=\circled{u})
+35. logits7 = project(inp=a8, op=\circled{v})
+36. logits8 = project(inp=a9, op=\circled{w})
+37. logits9 = project(inp=a10, op=\circled{x})
+38. logits10 = project(inp=sharpened_pos, op=\circled{y})
+39. logits11 = project(inp=a1, op=\circled{z})
+40. logits12 = project(inp=a2, op=\circled{{})
+41. logits13 = project(inp=a3, op=\circled{|})
+42. logits14 = project(inp=a4, op=\circled{}})
+43. logits15 = project(inp=token, op=\circled{~})
+44. logits16 = project(inp=a1, op=\circled{})
+45. logits17 = project(inp=a3, op=\circled{})
+46. logits18 = project(inp=hardened_a5, op=\circled{})
+47. logits19 = project(inp=sharpened_a8, op=\circled{})
+48. logits20 = project(inp=token, op=\circled{})
+49. logits21 = project(inp=a1, op=\circled{})
+50. logits22 = project(op=\circled{})
+51. prediction = softmax(logits1+
+			logits2+
+			logits3+
+			logits4+
+			logits5+
+			logits6+
+			logits7+
+			logits8+
+			logits9+
+			logits10+
+			logits11+
+			logits12+
+			logits13+
+			logits14+
+			logits15+
+			logits16+
+			logits17+
+			logits18+
+			logits19+
+			logits20+
+			logits21+
+			logits22)

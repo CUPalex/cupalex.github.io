@@ -1,0 +1,27 @@
+1. s1 = select(q=token, k=token, op=\circled{a})	# layer 0 head 0
+2. s2 = select(q=pos, k=pos, op=\circled{b})	# layer 0 head 0
+3. a1 = aggregate(s=s1+s2, v=token) 	  # layer 0 head 0
+4. s3 = select(q=pos, k=pos, op=\circled{c})	# layer 0 head 1
+5. a2 = aggregate(s=s3, v=token) 	  # layer 0 head 1
+6. s4 = select(q=pos, k=token, op=\circled{d})	# layer 1 head 0
+7. s5 = select(q=pos, k=pos, op=(k==q-2))	# layer 1 head 0
+8. a3 = aggregate(s=s4+s5, v=token) 	  # layer 1 head 0
+9. a4 = aggregate(s=s4+s5, v=pos) 	  # layer 1 head 0
+10. is_pure_token = is_pure(token) 	  # layer 1 mlp
+11. is_01_balance_a3 = is_01_balance(a3) 	  # layer 1 mlp
+12. logits1 = project(inp=a4, op=\circled{f})
+13. logits2 = project(inp=token, op=\circled{g})
+14. logits3 = project(inp=pos, op=\circled{h})
+15. logits4 = project(inp=is_pure_token, op=\circled{i})
+16. logits5 = project(inp=a1, op=\circled{j})
+17. logits6 = project(inp=a2, op=\circled{k})
+18. logits7 = project(inp=is_01_balance_a3, op=\circled{l})
+19. logits8 = project(inp=pos, op=\circled{m})
+20. prediction = softmax(logits1+
+			logits2+
+			logits3+
+			logits4+
+			logits5+
+			logits6+
+			logits7+
+			logits8)

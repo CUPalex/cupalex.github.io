@@ -1,0 +1,27 @@
+1. new_token = element_wise_op(token) 	  # layer 0 mlp
+2. is_pure_pos = is_pure(pos) 	  # layer 0 mlp
+3. s1 = select(q=token, k=is_pure_pos, op=\circled{a})	# layer 1 head 0
+4. s2 = select(q=new_token, k=is_pure_pos, op=(q==k))	# layer 1 head 0
+5. s3 = select(q=is_pure_pos, k=new_token, op=(q==k))	# layer 1 head 0
+6. s4 = select(q=is_pure_pos, k=is_pure_pos, op=\circled{b})	# layer 1 head 0
+7. s5 = select(k=token, op=\circled{c})
+8. s6 = select(k=new_token, op=\circled{d})
+9. s7 = select(k=is_pure_pos, op=\circled{e})
+10. a1 = aggregate(s=s1+s2+s3+s4+s5+s6+s7, v=token) 	  # layer 1 head 0
+11. a2 = aggregate(s=s1+s2+s3+s4+s5+s6+s7, v=pos) 	  # layer 1 head 0
+12. a3 = aggregate(s=s1+s2+s3+s4+s5+s6+s7, v=is_pure_pos) 	  # layer 1 head 0
+13. new_pos = element_wise_op(pos) 	  # layer 1 mlp
+14. new_a1 = element_wise_op(a1) 	  # layer 1 mlp
+15. new_a2 = element_wise_op(a2) 	  # layer 1 mlp
+16. hardened_a3 = harden(a3) 	  # layer 1 mlp
+17. new_is_pure_pos = element_wise_op(is_pure_pos) 	  # layer 1 mlp
+18. logits1 = project(inp=new_pos, op=(inp==out))
+19. logits2 = project(inp=new_a1, op=(inp==out))
+20. logits3 = project(inp=new_a2, op=(inp==out))
+21. logits4 = project(inp=hardened_a3, op=\circled{f})
+22. logits5 = project(inp=new_is_pure_pos, op=(inp==out))
+23. prediction = sigmoid(logits1+
+			logits2+
+			logits3+
+			logits4+
+			logits5)

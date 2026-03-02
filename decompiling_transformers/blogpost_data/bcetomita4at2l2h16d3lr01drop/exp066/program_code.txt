@@ -1,0 +1,2 @@
+1. logits1 = project(op=\circled{a})
+2. prediction = sigmoid(logits1)

@@ -1,0 +1,65 @@
+1. s1 = select(q=token, k=token, op=\circled{a})	# layer 0 head 0
+2. s2 = select(q=pos, k=pos, op=\circled{b})	# layer 0 head 0
+3. a1 = aggregate(s=s1+s2, v=token) 	  # layer 0 head 0
+4. a2 = aggregate(s=s1+s2, v=pos) 	  # layer 0 head 0
+5. s3 = select(q=token, k=token, op=\circled{c})	# layer 0 head 1
+6. s4 = select(q=pos, k=pos, op=\circled{d})	# layer 0 head 1
+7. s5 = select(k=pos, op=\circled{e})
+8. a3 = aggregate(s=s3+s4+s5, v=token) 	  # layer 0 head 1
+9. a4 = aggregate(s=s3+s4+s5, v=pos) 	  # layer 0 head 1
+10. s6 = select(q=pos, k=token, op=\circled{f})	# layer 1 head 0
+11. s7 = select(q=pos, k=pos, op=\circled{g})	# layer 1 head 0
+12. a5 = aggregate(s=s6+s7, v=token) 	  # layer 1 head 0
+13. a6 = aggregate(s=s6+s7, v=token) 	  # layer 1 head 0
+14. a7 = aggregate(s=s6+s7, v=a1) 	  # layer 1 head 0
+15. a8 = aggregate(s=s6+s7, v=a3) 	  # layer 1 head 0
+16. s8 = select(q=token, k=token, op=(uniform selection),
+		special_op=(k==SEP))	# layer 1 head 1
+17. s9 = select(q=pos, k=token, op=\circled{i})	# layer 1 head 1
+18. s10 = select(q=pos, k=pos, op=\circled{j})	# layer 1 head 1
+19. s11 = select(q=pos, k=a1, op=(k==q))	# layer 1 head 1
+20. a9 = aggregate(s=s8+s9+s10+s11, v=token) 	  # layer 1 head 1
+21. a10 = aggregate(s=s8+s9+s10+s11, v=a1) 	  # layer 1 head 1
+22. a11 = aggregate(s=s8+s9+s10+s11, v=a4) 	  # layer 1 head 1
+23. a12 = aggregate(s=s8+s9+s10+s11, v=pos) 	  # layer 1 head 1
+24. a13 = aggregate(s=s8+s9+s10+s11, v=a2) 	  # layer 1 head 1
+25. logits1 = project(inp=a2, op=\circled{l})
+26. logits2 = project(inp=a5, op=\circled{m})
+27. logits3 = project(inp=a6, op=\circled{n})
+28. logits4 = project(inp=a7, op=\circled{o})
+29. logits5 = project(inp=a9, op=\circled{p})
+30. logits6 = project(inp=a12, op=\circled{q})
+31. logits7 = project(inp=a13, op=\circled{r})
+32. logits8 = project(inp=token, op=\circled{s})
+33. logits9 = project(inp=token, op=\circled{t})
+34. logits10 = project(inp=pos, op=\circled{u})
+35. logits11 = project(inp=a1, op=\circled{v})
+36. logits12 = project(inp=a3, op=\circled{w})
+37. logits13 = project(inp=a5, op=\circled{x})
+38. logits14 = project(inp=a8, op=\circled{y})
+39. logits15 = project(inp=a10, op=\circled{z})
+40. logits16 = project(inp=a11, op=\circled{{})
+41. logits17 = project(inp=a12, op=\circled{|})
+42. logits18 = project(inp=pos, op=(inp==out))
+43. logits19 = project(inp=a1, op=\circled{~})
+44. logits20 = project(inp=a3, op=\circled{})
+45. prediction = softmax(logits1+
+			logits2+
+			logits3+
+			logits4+
+			logits5+
+			logits6+
+			logits7+
+			logits8+
+			logits9+
+			logits10+
+			logits11+
+			logits12+
+			logits13+
+			logits14+
+			logits15+
+			logits16+
+			logits17+
+			logits18+
+			logits19+
+			logits20)

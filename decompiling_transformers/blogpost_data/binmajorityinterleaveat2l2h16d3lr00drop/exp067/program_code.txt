@@ -1,0 +1,33 @@
+1. s1 = select(q=token, k=token, op=\circled{a})	# layer 0 head 0
+2. s2 = select(q=pos, k=pos, op=\circled{b})	# layer 0 head 0
+3. a1 = aggregate(s=s1+s2, v=token) 	  # layer 0 head 0
+4. s3 = select(q=token, k=token, op=\circled{c})	# layer 0 head 1
+5. s4 = select(q=pos, k=pos, op=\circled{d})	# layer 0 head 1
+6. a2 = aggregate(s=s3+s4, v=token) 	  # layer 0 head 1
+7. s5 = select(q=pos, k=token, op=\circled{e})	# layer 1 head 0
+8. s6 = select(q=pos, k=pos, op=\circled{f})	# layer 1 head 0
+9. a3 = aggregate(s=s5+s6, v=a2) 	  # layer 1 head 0
+10. s7 = select(q=pos, k=pos, op=\circled{g})	# layer 1 head 1
+11. s8 = select(q=pos, k=a2, op=\circled{h})	# layer 1 head 1
+12. s9 = select(k=pos, op=\circled{i})
+13. a4 = aggregate(s=s7+s8+s9, v=pos) 	  # layer 1 head 1
+14. is_pure_token = is_pure(token) 	  # layer 1 mlp
+15. sharpened_a2 = sharpen(a2) 	  # layer 1 mlp
+16. logits1 = project(inp=a3, op=\circled{j})
+17. logits2 = project(inp=a4, op=\circled{k})
+18. logits3 = project(inp=pos, op=\circled{l})
+19. logits4 = project(inp=is_pure_token, op=\circled{m})
+20. logits5 = project(inp=a1, op=\circled{n})
+21. logits6 = project(inp=a2, op=\circled{o})
+22. logits7 = project(inp=token, op=\circled{p})
+23. logits8 = project(inp=sharpened_a2, op=\circled{q})
+24. logits9 = project(op=\circled{r})
+25. prediction = softmax(logits1+
+			logits2+
+			logits3+
+			logits4+
+			logits5+
+			logits6+
+			logits7+
+			logits8+
+			logits9)

@@ -1,0 +1,39 @@
+1. s1 = select(q=token, k=token, op=\circled{a})	# layer 0 head 0
+2. s2 = select(q=pos, k=pos, op=\circled{b})	# layer 0 head 0
+3. s3 = select(k=token, op=\circled{c})
+4. a1 = aggregate(s=s1+s2+s3, v=token) 	  # layer 0 head 0
+5. s4 = select(q=token, k=token, op=\circled{d})	# layer 0 head 1
+6. s5 = select(q=pos, k=pos, op=\circled{e})	# layer 0 head 1
+7. s6 = select(k=token, op=\circled{f})
+8. a2 = aggregate(s=s4+s5+s6, v=token) 	  # layer 0 head 1
+9. s7 = select(q=token, k=pos, op=(uniform selection),
+		special_op=(k==q-2))	# layer 1 head 0
+10. s8 = select(q=pos, k=token, op=\circled{h})	# layer 1 head 0
+11. s9 = select(q=pos, k=pos, op=\circled{i})	# layer 1 head 0
+12. a3 = aggregate(s=s7+s8+s9, v=token) 	  # layer 1 head 0
+13. a4 = aggregate(s=s7+s8+s9, v=a1) 	  # layer 1 head 0
+14. s10 = select(q=pos, k=token, op=\circled{j})	# layer 1 head 1
+15. s11 = select(k=token, op=(k==EOS))
+16. a5 = aggregate(s=s10+s11, v=pos) 	  # layer 1 head 1
+17. logits1 = project(inp=a4, op=\circled{l})
+18. logits2 = project(inp=pos, op=\circled{m})
+19. logits3 = project(inp=a2, op=\circled{n})
+20. logits4 = project(inp=token, op=\circled{o})
+21. logits5 = project(inp=a1, op=\circled{p})
+22. logits6 = project(inp=a2, op=\circled{q})
+23. logits7 = project(inp=a3, op=\circled{r})
+24. logits8 = project(inp=a4, op=\circled{s})
+25. logits9 = project(inp=a5, op=\circled{t})
+26. logits10 = project(inp=pos, op=\circled{u})
+27. logits11 = project(op=\circled{v})
+28. prediction = softmax(logits1+
+			logits2+
+			logits3+
+			logits4+
+			logits5+
+			logits6+
+			logits7+
+			logits8+
+			logits9+
+			logits10+
+			logits11)

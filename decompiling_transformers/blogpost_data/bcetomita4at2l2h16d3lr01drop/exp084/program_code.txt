@@ -1,0 +1,7 @@
+1. s1 = select(q=pos, k=pos, op=(k==q-1))	# layer 0 head 0
+2. a1 = aggregate(s=s1, v=token) 	  # layer 0 head 0
+3. new_token = element_wise_op(token) 	  # layer 0 mlp
+4. logits1 = project(inp=a1, op=\circled{b})
+5. logits2 = project(inp=new_token, op=(inp==out))
+6. prediction = sigmoid(logits1+
+			logits2)
