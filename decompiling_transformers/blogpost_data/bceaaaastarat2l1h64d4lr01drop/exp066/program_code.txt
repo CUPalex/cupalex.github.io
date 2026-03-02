@@ -1,0 +1,101 @@
+1. s1 = select(q=token, k=token, op=(k==q),
+		special_op=(uniform selection))	# layer 0 head 0
+2. s2 = select(q=token, k=pos, op=\circled{b})	# layer 0 head 0
+3. s3 = select(k=pos, op=\circled{c})
+4. a1 = aggregate(s=s1+s2+s3, v=token) 	  # layer 0 head 0
+5. a2 = aggregate(s=s1+s2+s3, v=pos) 	  # layer 0 head 0
+6. new_token = element_wise_op(token) 	  # layer 0 mlp
+7. new_a1 = element_wise_op(a1) 	  # layer 0 mlp
+8. s4 = select(q=token, k=token, op=\circled{d})	# layer 1 head 0
+9. s5 = select(q=token, k=new_a1, op=(uniform selection),
+		special_op=(k==q))	# layer 1 head 0
+10. s6 = select(q=token, k=a2, op=\circled{f})	# layer 1 head 0
+11. s7 = select(q=pos, k=token, op=\circled{g})	# layer 1 head 0
+12. s8 = select(q=pos, k=pos, op=\circled{h})	# layer 1 head 0
+13. s9 = select(q=a1, k=new_a1, op=(uniform selection),
+		special_op=(k==q))	# layer 1 head 0
+14. s10 = select(q=a1, k=a2, op=\circled{j})	# layer 1 head 0
+15. s11 = select(q=new_token, k=a1, op=(q==k))	# layer 1 head 0
+16. s12 = select(q=new_token, k=pos, op=(q==k))	# layer 1 head 0
+17. s13 = select(q=new_token, k=new_a1, op=(q==k))	# layer 1 head 0
+18. s14 = select(q=new_token, k=a2, op=(q==k))	# layer 1 head 0
+19. s15 = select(q=pos, k=token, op=\circled{k})	# layer 1 head 0
+20. s16 = select(q=pos, k=pos, op=\circled{l})	# layer 1 head 0
+21. s17 = select(q=pos, k=a1, op=\circled{m})	# layer 1 head 0
+22. s18 = select(q=pos, k=a2, op=\circled{n})	# layer 1 head 0
+23. s19 = select(q=pos, k=new_token, op=(q==k))	# layer 1 head 0
+24. s20 = select(q=pos, k=pos, op=\circled{o})	# layer 1 head 0
+25. s21 = select(q=pos, k=new_a1, op=(q==k))	# layer 1 head 0
+26. s22 = select(q=pos, k=a2, op=\circled{p})	# layer 1 head 0
+27. s23 = select(q=new_a1, k=token, op=(q==k))	# layer 1 head 0
+28. s24 = select(q=new_a1, k=pos, op=(q==k))	# layer 1 head 0
+29. s25 = select(q=new_a1, k=a1, op=(q==k))	# layer 1 head 0
+30. s26 = select(q=new_a1, k=a2, op=(q==k))	# layer 1 head 0
+31. s27 = select(q=new_a1, k=new_token, op=(q==k))	# layer 1 head 0
+32. s28 = select(q=new_a1, k=pos, op=(q==k))	# layer 1 head 0
+33. s29 = select(q=new_a1, k=new_a1, op=(q==k))	# layer 1 head 0
+34. s30 = select(q=a2, k=token, op=\circled{q})	# layer 1 head 0
+35. s31 = select(q=a2, k=a1, op=\circled{r})	# layer 1 head 0
+36. s32 = select(q=a2, k=a2, op=\circled{s})	# layer 1 head 0
+37. s33 = select(q=a2, k=new_token, op=(q==k))	# layer 1 head 0
+38. s34 = select(q=a2, k=pos, op=\circled{t})	# layer 1 head 0
+39. s35 = select(q=a2, k=new_a1, op=(q==k))	# layer 1 head 0
+40. s36 = select(q=a2, k=a2, op=\circled{u})	# layer 1 head 0
+41. s37 = select(k=token, op=\circled{v})
+42. s38 = select(k=a1, op=\circled{w})
+43. s39 = select(k=a2, op=\circled{x})
+44. s40 = select(k=new_token, op=\circled{y})
+45. s41 = select(k=pos, op=\circled{z})
+46. s42 = select(k=new_a1, op=\circled{{})
+47. a3 = aggregate(s=s4+s5+s6+s7+s8+s9+s10+s11+s12+s13+s14+s15+s16+s17+s18+s19+s20+s21+s22+s23+s24+s25+s26+s27+s28+s29+s30+s31+s32+s33+s34+s35+s36+s37+s38+s39+s40+s41+s42, v=token) 	  # layer 1 head 0
+48. a4 = aggregate(s=s4+s5+s6+s7+s8+s9+s10+s11+s12+s13+s14+s15+s16+s17+s18+s19+s20+s21+s22+s23+s24+s25+s26+s27+s28+s29+s30+s31+s32+s33+s34+s35+s36+s37+s38+s39+s40+s41+s42, v=pos) 	  # layer 1 head 0
+49. a5 = aggregate(s=s4+s5+s6+s7+s8+s9+s10+s11+s12+s13+s14+s15+s16+s17+s18+s19+s20+s21+s22+s23+s24+s25+s26+s27+s28+s29+s30+s31+s32+s33+s34+s35+s36+s37+s38+s39+s40+s41+s42, v=a1) 	  # layer 1 head 0
+50. a6 = aggregate(s=s4+s5+s6+s7+s8+s9+s10+s11+s12+s13+s14+s15+s16+s17+s18+s19+s20+s21+s22+s23+s24+s25+s26+s27+s28+s29+s30+s31+s32+s33+s34+s35+s36+s37+s38+s39+s40+s41+s42, v=a2) 	  # layer 1 head 0
+51. a7 = aggregate(s=s4+s5+s6+s7+s8+s9+s10+s11+s12+s13+s14+s15+s16+s17+s18+s19+s20+s21+s22+s23+s24+s25+s26+s27+s28+s29+s30+s31+s32+s33+s34+s35+s36+s37+s38+s39+s40+s41+s42, v=pos) 	  # layer 1 head 0
+52. a8 = aggregate(s=s4+s5+s6+s7+s8+s9+s10+s11+s12+s13+s14+s15+s16+s17+s18+s19+s20+s21+s22+s23+s24+s25+s26+s27+s28+s29+s30+s31+s32+s33+s34+s35+s36+s37+s38+s39+s40+s41+s42, v=new_a1) 	  # layer 1 head 0
+53. a9 = aggregate(s=s4+s5+s6+s7+s8+s9+s10+s11+s12+s13+s14+s15+s16+s17+s18+s19+s20+s21+s22+s23+s24+s25+s26+s27+s28+s29+s30+s31+s32+s33+s34+s35+s36+s37+s38+s39+s40+s41+s42, v=a2) 	  # layer 1 head 0
+54. is_pure_a3 = is_pure(a3) 	  # layer 1 mlp
+55. new_new_token = element_wise_op(new_token) 	  # layer 1 mlp
+56. new_new_a1 = element_wise_op(new_a1) 	  # layer 1 mlp
+57. logits1 = project(inp=a1, op=\circled{|})
+58. logits2 = project(inp=a5, op=(inp==out),
+		special_op=(uniform selection))
+59. logits3 = project(inp=a7, op=\circled{~})
+60. logits4 = project(inp=a8, op=(inp==out))
+61. logits5 = project(inp=a9, op=\circled{})
+62. logits6 = project(inp=pos, op=\circled{})
+63. logits7 = project(inp=new_a1, op=(inp==out))
+64. logits8 = project(inp=a2, op=\circled{})
+65. logits9 = project(inp=token, op=(uniform selection),
+		special_op=(out==EOS))
+66. logits10 = project(inp=pos, op=\circled{})
+67. logits11 = project(inp=is_pure_a3, op=\circled{})
+68. logits12 = project(inp=a4, op=\circled{})
+69. logits13 = project(inp=a5, op=\circled{})
+70. logits14 = project(inp=a6, op=\circled{})
+71. logits15 = project(inp=a7, op=\circled{})
+72. logits16 = project(inp=a9, op=\circled{})
+73. logits17 = project(inp=new_new_token, op=(inp==out))
+74. logits18 = project(inp=pos, op=\circled{})
+75. logits19 = project(inp=new_new_a1, op=(inp==out))
+76. logits20 = project(inp=a2, op=\circled{})
+77. prediction = sigmoid(logits1+
+			logits2+
+			logits3+
+			logits4+
+			logits5+
+			logits6+
+			logits7+
+			logits8+
+			logits9+
+			logits10+
+			logits11+
+			logits12+
+			logits13+
+			logits14+
+			logits15+
+			logits16+
+			logits17+
+			logits18+
+			logits19+
+			logits20)

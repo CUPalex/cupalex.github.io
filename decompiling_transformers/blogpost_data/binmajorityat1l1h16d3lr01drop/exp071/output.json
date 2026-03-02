@@ -1,0 +1,97 @@
+{
+    "result_patching_performance_global_iteration_0": {
+        "acc_match": 0.9999166666666667,
+        "acc_task": 0.999875,
+        "task_loss": 0.024471803423948585,
+        "kl_div": 0.0003962872205011081,
+        "num_edges": 9,
+        "coef": 3.1622776601683795e-05
+    },
+    "result_patching_config_global_iteration_0": {
+        "0": {
+            "k": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "q": {
+                "0": [
+                    "wpe"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "mlp": [
+                "wte"
+            ]
+        },
+        "lm_head": [
+            "wte",
+            "wpe",
+            "attn_output-0-0",
+            "mlp-0"
+        ]
+    },
+    "acc_match": 0.500875,
+    "acc_task": 0.5009583333333333,
+    "kl_div": 0.10798111230134964,
+    "task_loss": 0.6953554785251618,
+    "result_patching_performance_global_iteration_1": {
+        "acc_match": 0.500875,
+        "acc_task": 0.5009583333333333,
+        "task_loss": 0.6953554785251618,
+        "kl_div": 0.10798111230134964,
+        "num_edges": 2,
+        "coef": 0.00015811388300841897
+    },
+    "result_patching_config_global_iteration_1": {
+        "0": {
+            "k": {
+                "0": []
+            },
+            "q": {
+                "0": []
+            },
+            "v": {
+                "0": []
+            },
+            "mlp": [
+                "wte"
+            ]
+        },
+        "lm_head": [
+            "mlp-0-wte"
+        ]
+    },
+    "result_patching_performance_global_iteration_2": {
+        "acc_match": 0.500875,
+        "acc_task": 0.5009583333333333,
+        "task_loss": 0.6953554785251618,
+        "kl_div": 0.10798111230134964,
+        "num_edges": 0,
+        "coef": 0.0007905694150420948
+    },
+    "result_patching_config_global_iteration_2": {
+        "0": {
+            "k": {
+                "0": []
+            },
+            "v": {
+                "0": []
+            },
+            "mlp": [
+                "wte"
+            ],
+            "qk": {
+                "0": []
+            }
+        },
+        "lm_head": [
+            "mlp-0-wte"
+        ]
+    }
+}

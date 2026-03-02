@@ -1,0 +1,5 @@
+1. m1 = mlp(pos) 	  # layer 0 mlp
+2. logits1 = project(inp=m1, op=(inp==out))
+3. logits2 = project(op=\circled{a})
+4. prediction = sigmoid(logits1+
+			logits2)

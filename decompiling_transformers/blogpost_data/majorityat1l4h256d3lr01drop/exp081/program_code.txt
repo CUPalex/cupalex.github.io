@@ -1,0 +1,4 @@
+1. a1 = aggregate(s=[], v=token) 	  # layer 0 head 1
+2. logits1 = project(inp=a1, op=(inp==out),
+		special_op=(uniform selection))
+3. prediction = softmax(logits1)

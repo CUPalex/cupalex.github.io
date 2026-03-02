@@ -1,0 +1,131 @@
+{
+    "result_patching_performance_global_iteration_0": {
+        "acc_match": 0.7867083333333333,
+        "acc_task": 0.7058333333333333,
+        "task_loss": 0.07067764088511468,
+        "kl_div": 0.003451170794432983,
+        "num_edges": 10,
+        "coef": 0.001
+    },
+    "result_patching_config_global_iteration_0": {
+        "0": {
+            "k": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "q": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "mlp": [
+                "wte",
+                "wpe",
+                "attn_output-0-0"
+            ]
+        },
+        "lm_head": [
+            "mlp-0"
+        ]
+    },
+    "acc_match": 0.6492916666666667,
+    "acc_task": 0.6462083333333334,
+    "kl_div": 0.004831986755598336,
+    "task_loss": 0.06433402609080076,
+    "result_patching_performance_global_iteration_1": {
+        "acc_match": 0.8307083333333334,
+        "acc_task": 0.698,
+        "task_loss": 0.10090196345001459,
+        "kl_div": 0.0019425958557985723,
+        "num_edges": 14,
+        "coef": 0.001
+    },
+    "result_patching_config_global_iteration_1": {
+        "0": {
+            "k": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "q": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "mlp": [
+                "wte",
+                "wpe",
+                "attn_output-0-0-wte",
+                "attn_output-0-0-wpe"
+            ]
+        },
+        "lm_head": [
+            "mlp-0-wte",
+            "mlp-0-wpe",
+            "mlp-0-attn_output-0-0-wte",
+            "mlp-0-attn_output-0-0-wpe"
+        ]
+    },
+    "result_patching_performance_global_iteration_2": {
+        "acc_match": 0.6492916666666667,
+        "acc_task": 0.6462083333333334,
+        "task_loss": 0.06433402609080076,
+        "kl_div": 0.004831986755598336,
+        "num_edges": 2,
+        "coef": 0.011180339887498949
+    },
+    "result_patching_config_global_iteration_2": {
+        "0": {
+            "k": {
+                "0": []
+            },
+            "v": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "mlp": [
+                "wte",
+                "wpe",
+                "attn_output-0-0-wte",
+                "attn_output-0-0-wpe"
+            ],
+            "qk": {
+                "0": [
+                    [
+                        "wte",
+                        "wte"
+                    ],
+                    [
+                        "wpe",
+                        "wpe"
+                    ]
+                ]
+            }
+        },
+        "lm_head": [
+            "mlp-0-wte",
+            "mlp-0-wpe",
+            "mlp-0-attn_output-0-0-wte",
+            "mlp-0-attn_output-0-0-wpe"
+        ]
+    }
+}

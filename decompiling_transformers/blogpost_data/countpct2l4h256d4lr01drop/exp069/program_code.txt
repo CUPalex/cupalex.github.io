@@ -1,0 +1,20 @@
+1. s1 = select(q=token, k=token, op=(uniform selection),
+		special_op=(k is last))	# layer 0 head 2
+2. s2 = select(k=token, op=\circled{b})
+3. a1 = aggregate(s=s1+s2, v=token) 	  # layer 0 head 2
+4. new_a1 = element_wise_op(a1) 	  # layer 0 mlp
+5. a2 = aggregate(s=[], v=new_a1) 	  # layer 1 head 0
+6. s3 = select(q=token, k=token, op=(k==q),
+		special_op=(uniform selection))	# layer 1 head 3
+7. s4 = select(q=token, k=new_a1, op=(q==k))	# layer 1 head 3
+8. a3 = aggregate(s=s3+s4, v=new_a1) 	  # layer 1 head 3
+9. logits1 = project(inp=a2, op=(inp==out))
+10. logits2 = project(inp=a3, op=(inp==out))
+11. logits3 = project(inp=token, op=\circled{d})
+12. logits4 = project(inp=new_a1, op=(inp==out))
+13. logits5 = project(inp=token, op=\circled{e})
+14. prediction = softmax(logits1+
+			logits2+
+			logits3+
+			logits4+
+			logits5)

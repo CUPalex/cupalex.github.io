@@ -1,0 +1,9 @@
+1. s1 = select(q=pos, k=pos, op=\circled{a})	# layer 0 head 0
+2. a1 = aggregate(s=s1, v=token) 	  # layer 0 head 0
+3. s2 = select(q=pos, k=pos, op=(k==q-1))	# layer 0 head 2
+4. a2 = aggregate(s=s2, v=token) 	  # layer 0 head 2
+5. token_x_a1_x_a2 = Cartesian_product(token, a1, a2) 	  # layer 0 mlp
+6. s3 = select(q=token_x_a1_x_a2, k=token_x_a1_x_a2, op=\circled{c})	# layer 1 head 2
+7. a3 = aggregate(s=s3, v=token_x_a1_x_a2) 	  # layer 1 head 2
+8. logits1 = project(inp=a3, op=\circled{d})
+9. prediction = softmax(logits1)

@@ -1,0 +1,101 @@
+{
+    "result_patching_performance_global_iteration_0": {
+        "acc_match": 0.479,
+        "acc_task": 0.479,
+        "task_loss": 0.13801568768918515,
+        "kl_div": 0.13929530940949916,
+        "num_edges": 3,
+        "coef": 0.0006572670690061993
+    },
+    "result_patching_config_global_iteration_0": {
+        "0": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "q": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [],
+                "1": []
+            },
+            "mlp": [
+                "wte",
+                "wpe"
+            ]
+        },
+        "lm_head": [
+            "mlp-0"
+        ]
+    },
+    "acc_match": 0.0045,
+    "acc_task": 0.0045,
+    "kl_div": 0.14481796756386756,
+    "task_loss": 0.1436214903742075,
+    "result_patching_performance_global_iteration_1": {
+        "acc_match": 0.0045,
+        "acc_task": 0.0045,
+        "task_loss": 0.1436214903742075,
+        "kl_div": 0.14481796756386756,
+        "num_edges": 4,
+        "coef": 0.00013145341380123987
+    },
+    "result_patching_config_global_iteration_1": {
+        "0": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "q": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [],
+                "1": []
+            },
+            "mlp": [
+                "wte",
+                "wpe"
+            ]
+        },
+        "lm_head": [
+            "mlp-0-wte",
+            "mlp-0-wpe"
+        ]
+    },
+    "result_patching_performance_global_iteration_2": {
+        "acc_match": 0.0045,
+        "acc_task": 0.0045,
+        "task_loss": 0.1436214903742075,
+        "kl_div": 0.14481796756386756,
+        "num_edges": 0,
+        "coef": 0.41079191812887467
+    },
+    "result_patching_config_global_iteration_2": {
+        "0": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [],
+                "1": []
+            },
+            "mlp": [
+                "wte",
+                "wpe"
+            ],
+            "qk": {
+                "0": [],
+                "1": []
+            }
+        },
+        "lm_head": [
+            "mlp-0-wte",
+            "mlp-0-wpe"
+        ]
+    }
+}

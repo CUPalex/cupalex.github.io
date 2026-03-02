@@ -1,0 +1,171 @@
+{
+    "result_patching_performance_global_iteration_0": {
+        "acc_match": 0.7522083333333334,
+        "acc_task": 0.7476666666666667,
+        "task_loss": 0.16709601156413556,
+        "kl_div": 0.027015002686530353,
+        "num_edges": 12,
+        "coef": 0.023388638097427104
+    },
+    "result_patching_config_global_iteration_0": {
+        "0": {
+            "k": {
+                "0": [
+                    "wpe"
+                ],
+                "1": []
+            },
+            "q": {
+                "0": [
+                    "wpe"
+                ],
+                "1": []
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ],
+                "1": []
+            },
+            "mlp": [
+                "wte"
+            ]
+        },
+        "1": {
+            "k": {
+                "0": [
+                    "wte"
+                ],
+                "1": []
+            },
+            "q": {
+                "0": [
+                    "mlp-0"
+                ],
+                "1": []
+            },
+            "v": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ],
+                "1": []
+            },
+            "mlp": [
+                "wpe",
+                "attn_output-0-0",
+                "attn_output-1-0"
+            ]
+        },
+        "lm_head": [
+            "mlp-1"
+        ]
+    },
+    "result_patching_performance_global_iteration_1": {
+        "acc_match": 0.021791666666666668,
+        "acc_task": 0.022541666666666668,
+        "task_loss": 0.5894261780381203,
+        "kl_div": 0.09794193796813488,
+        "num_edges": 5,
+        "coef": 0.05229858468698836
+    },
+    "result_patching_config_global_iteration_1": {
+        "0": {
+            "k": {
+                "0": [
+                    "wpe"
+                ],
+                "1": []
+            },
+            "q": {
+                "0": [
+                    "wpe"
+                ],
+                "1": []
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ],
+                "1": []
+            },
+            "mlp": []
+        },
+        "1": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "q": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [],
+                "1": []
+            },
+            "mlp": [
+                "attn_output-0-0-wte"
+            ]
+        },
+        "lm_head": [
+            "mlp-1-attn_output-0-0-wte"
+        ]
+    },
+    "result_patching_performance_global_iteration_2": {
+        "acc_match": 0.036125,
+        "acc_task": 0.03829166666666667,
+        "task_loss": 0.6710079482197762,
+        "kl_div": 0.11221604678779841,
+        "num_edges": 1,
+        "coef": 0.0020919433874795343
+    },
+    "result_patching_config_global_iteration_2": {
+        "0": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ],
+                "1": []
+            },
+            "mlp": [],
+            "qk": {
+                "0": [
+                    [
+                        "wpe",
+                        "wpe"
+                    ]
+                ],
+                "1": []
+            }
+        },
+        "1": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [],
+                "1": []
+            },
+            "mlp": [
+                "attn_output-0-0-wte"
+            ],
+            "qk": {
+                "0": [],
+                "1": []
+            }
+        },
+        "lm_head": [
+            "mlp-1-attn_output-0-0-wte"
+        ]
+    },
+    "acc_match": 0.036125,
+    "acc_task": 0.03829166666666667,
+    "kl_div": 0.11221604678779841,
+    "task_loss": 0.6710079482197762
+}

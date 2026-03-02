@@ -1,0 +1,106 @@
+{
+    "result_patching_performance_global_iteration_0": {
+        "acc_match": 1.0,
+        "acc_task": 1.0,
+        "task_loss": 0.0002978489740053192,
+        "kl_div": 0.002571742699947208,
+        "num_edges": 6,
+        "coef": 0.00021960261528947082
+    },
+    "result_patching_config_global_iteration_0": {
+        "0": {
+            "k": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "q": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "mlp": [
+                "attn_output-0-0"
+            ]
+        },
+        "lm_head": [
+            "attn_output-0-0",
+            "mlp-0"
+        ]
+    },
+    "acc_match": 1.0,
+    "acc_task": 1.0,
+    "kl_div": 0.00263842805987224,
+    "task_loss": 0.0003212878719205037,
+    "result_patching_performance_global_iteration_1": {
+        "acc_match": 1.0,
+        "acc_task": 1.0,
+        "task_loss": 0.00031343067676061767,
+        "kl_div": 0.0026608664635568856,
+        "num_edges": 6,
+        "coef": 3.513641844631533e-07
+    },
+    "result_patching_config_global_iteration_1": {
+        "0": {
+            "k": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "q": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "mlp": [
+                "attn_output-0-0-wte"
+            ]
+        },
+        "lm_head": [
+            "attn_output-0-0-wte",
+            "mlp-0-attn_output-0-0-wte"
+        ]
+    },
+    "result_patching_performance_global_iteration_2": {
+        "acc_match": 1.0,
+        "acc_task": 1.0,
+        "task_loss": 0.0003212878719205037,
+        "kl_div": 0.00263842805987224,
+        "num_edges": 1,
+        "coef": 4.392052305789416e-05
+    },
+    "result_patching_config_global_iteration_2": {
+        "0": {
+            "k": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "mlp": [
+                "attn_output-0-0-wte"
+            ],
+            "qk": {
+                "0": []
+            }
+        },
+        "lm_head": [
+            "attn_output-0-0-wte",
+            "mlp-0-attn_output-0-0-wte"
+        ]
+    }
+}

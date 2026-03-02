@@ -1,0 +1,111 @@
+{
+    "result_patching_performance_global_iteration_0": {
+        "acc_match": 0.989875,
+        "acc_task": 0.9865,
+        "task_loss": 0.0009700688265729695,
+        "kl_div": 3.023281516334464e-06,
+        "num_edges": 6,
+        "coef": 1e-05
+    },
+    "result_patching_config_global_iteration_0": {
+        "0": {
+            "k": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "q": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "mlp": [
+                "wte",
+                "attn_output-0-0"
+            ]
+        },
+        "lm_head": [
+            "mlp-0"
+        ]
+    },
+    "acc_match": 0.941875,
+    "acc_task": 0.9415,
+    "kl_div": 2.5607962220419723e-05,
+    "task_loss": 0.004718882077722811,
+    "result_patching_performance_global_iteration_1": {
+        "acc_match": 0.9595416666666666,
+        "acc_task": 0.9580416666666667,
+        "task_loss": 0.0032605461284401826,
+        "kl_div": 1.5686486606227845e-05,
+        "num_edges": 7,
+        "coef": 1e-05
+    },
+    "result_patching_config_global_iteration_1": {
+        "0": {
+            "k": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "q": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "mlp": [
+                "wte",
+                "attn_output-0-0-wte"
+            ]
+        },
+        "lm_head": [
+            "mlp-0-wte",
+            "mlp-0-attn_output-0-0-wte"
+        ]
+    },
+    "result_patching_performance_global_iteration_2": {
+        "acc_match": 0.941875,
+        "acc_task": 0.9415,
+        "task_loss": 0.004718882077722811,
+        "kl_div": 2.5607962220419723e-05,
+        "num_edges": 1,
+        "coef": 0.00625
+    },
+    "result_patching_config_global_iteration_2": {
+        "0": {
+            "k": {
+                "0": []
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "mlp": [
+                "wte",
+                "attn_output-0-0-wte"
+            ],
+            "qk": {
+                "0": [
+                    [
+                        "wte",
+                        "wte"
+                    ]
+                ]
+            }
+        },
+        "lm_head": [
+            "mlp-0-wte",
+            "mlp-0-attn_output-0-0-wte"
+        ]
+    }
+}

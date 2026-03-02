@@ -1,0 +1,101 @@
+{
+    "result_patching_performance_global_iteration_0": {
+        "acc_match": 0.5198333333333334,
+        "acc_task": 0.5198333333333334,
+        "task_loss": 0.14542284660041332,
+        "kl_div": 0.14661602362990378,
+        "num_edges": 5,
+        "coef": 0.0007071067811865475
+    },
+    "result_patching_config_global_iteration_0": {
+        "0": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "q": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [],
+                "1": []
+            },
+            "mlp": [
+                "wte",
+                "wpe"
+            ]
+        },
+        "lm_head": [
+            "wte",
+            "wpe",
+            "mlp-0"
+        ]
+    },
+    "acc_match": 0.515875,
+    "acc_task": 0.515875,
+    "kl_div": 0.14201302126049994,
+    "task_loss": 0.14079443514347076,
+    "result_patching_performance_global_iteration_1": {
+        "acc_match": 0.515875,
+        "acc_task": 0.515875,
+        "task_loss": 0.14079443514347076,
+        "kl_div": 0.14201302126049994,
+        "num_edges": 3,
+        "coef": 0.017677669529663688
+    },
+    "result_patching_config_global_iteration_1": {
+        "0": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "q": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [],
+                "1": []
+            },
+            "mlp": [
+                "wpe"
+            ]
+        },
+        "lm_head": [
+            "wpe",
+            "mlp-0"
+        ]
+    },
+    "result_patching_performance_global_iteration_2": {
+        "acc_match": 0.515875,
+        "acc_task": 0.515875,
+        "task_loss": 0.14079443514347076,
+        "kl_div": 0.14201302126049994,
+        "num_edges": 0,
+        "coef": 2.2097086912079607
+    },
+    "result_patching_config_global_iteration_2": {
+        "0": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [],
+                "1": []
+            },
+            "mlp": [
+                "wpe"
+            ],
+            "qk": {
+                "0": [],
+                "1": []
+            }
+        },
+        "lm_head": [
+            "wpe",
+            "mlp-0"
+        ]
+    }
+}

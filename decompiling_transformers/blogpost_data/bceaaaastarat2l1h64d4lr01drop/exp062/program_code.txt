@@ -1,0 +1,4 @@
+1. new_token = element_wise_op(token) 	  # layer 0 mlp
+2. new_new_token = element_wise_op(new_token) 	  # layer 1 mlp
+3. logits1 = project(inp=new_new_token, op=(inp==out))
+4. prediction = sigmoid(logits1)

@@ -1,0 +1,13 @@
+1. a1 = aggregate(s=[], v=token) 	  # layer 0 head 0
+2. new_token = element_wise_op(token) 	  # layer 0 mlp
+3. new_a1 = element_wise_op(a1) 	  # layer 0 mlp
+4. logits1 = project(inp=token, op=\circled{a})
+5. logits2 = project(inp=a1, op=\circled{b})
+6. logits3 = project(inp=new_token, op=(inp==out))
+7. logits4 = project(inp=new_a1, op=(inp==out))
+8. logits5 = project(op=\circled{c})
+9. prediction = sigmoid(logits1+
+			logits2+
+			logits3+
+			logits4+
+			logits5)

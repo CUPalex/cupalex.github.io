@@ -1,0 +1,196 @@
+{
+    "result_patching_performance_global_iteration_0": {
+        "acc_match": 0.9181666666666667,
+        "acc_task": 0.9081666666666667,
+        "task_loss": 0.0036001466383459046,
+        "kl_div": 1.727506066345086e-05,
+        "num_edges": 19,
+        "coef": 1e-05
+    },
+    "result_patching_config_global_iteration_0": {
+        "0": {
+            "k": {
+                "0": [
+                    "wte"
+                ],
+                "1": [
+                    "wte"
+                ],
+                "2": [
+                    "wte"
+                ],
+                "3": [
+                    "wte"
+                ]
+            },
+            "q": {
+                "0": [
+                    "wte"
+                ],
+                "1": [
+                    "wte"
+                ],
+                "2": [
+                    "wte"
+                ],
+                "3": [
+                    "wte"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ],
+                "1": [
+                    "wte"
+                ],
+                "2": [
+                    "wte"
+                ],
+                "3": [
+                    "wte"
+                ]
+            },
+            "mlp": [
+                "wte",
+                "attn_output-0-0",
+                "attn_output-0-1",
+                "attn_output-0-2",
+                "attn_output-0-3"
+            ]
+        },
+        "lm_head": [
+            "wte",
+            "mlp-0"
+        ]
+    },
+    "result_patching_performance_global_iteration_1": {
+        "acc_match": 0.8517916666666666,
+        "acc_task": 0.8815416666666667,
+        "task_loss": 0.006600695725064725,
+        "kl_div": 6.410710433556233e-05,
+        "num_edges": 22,
+        "coef": 1e-05
+    },
+    "result_patching_config_global_iteration_1": {
+        "0": {
+            "k": {
+                "0": [
+                    "wte"
+                ],
+                "1": [
+                    "wte"
+                ],
+                "2": [
+                    "wte"
+                ],
+                "3": [
+                    "wte"
+                ]
+            },
+            "q": {
+                "0": [
+                    "wte"
+                ],
+                "1": [
+                    "wte"
+                ],
+                "2": [
+                    "wte"
+                ],
+                "3": [
+                    "wte"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ],
+                "1": [
+                    "wte"
+                ],
+                "2": [
+                    "wte"
+                ],
+                "3": [
+                    "wte"
+                ]
+            },
+            "mlp": [
+                "wte",
+                "attn_output-0-0-wte",
+                "attn_output-0-1-wte",
+                "attn_output-0-2-wte",
+                "attn_output-0-3-wte"
+            ]
+        },
+        "lm_head": [
+            "mlp-0-wte",
+            "mlp-0-attn_output-0-0-wte",
+            "mlp-0-attn_output-0-1-wte",
+            "mlp-0-attn_output-0-2-wte",
+            "mlp-0-attn_output-0-3-wte"
+        ]
+    },
+    "result_patching_performance_global_iteration_2": {
+        "acc_match": 0.45945833333333336,
+        "acc_task": 0.47091666666666665,
+        "task_loss": 0.035250838147476315,
+        "kl_div": 0.00024052875938650685,
+        "num_edges": 1,
+        "coef": 0.00025
+    },
+    "result_patching_config_global_iteration_2": {
+        "0": {
+            "k": {
+                "0": [],
+                "1": [],
+                "2": [],
+                "3": []
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ],
+                "1": [
+                    "wte"
+                ],
+                "2": [
+                    "wte"
+                ],
+                "3": [
+                    "wte"
+                ]
+            },
+            "mlp": [
+                "wte",
+                "attn_output-0-0-wte",
+                "attn_output-0-1-wte",
+                "attn_output-0-2-wte",
+                "attn_output-0-3-wte"
+            ],
+            "qk": {
+                "0": [
+                    [
+                        "wte",
+                        "wte"
+                    ]
+                ],
+                "1": [],
+                "2": [],
+                "3": []
+            }
+        },
+        "lm_head": [
+            "mlp-0-wte",
+            "mlp-0-attn_output-0-0-wte",
+            "mlp-0-attn_output-0-1-wte",
+            "mlp-0-attn_output-0-2-wte",
+            "mlp-0-attn_output-0-3-wte"
+        ]
+    },
+    "acc_match": 0.45945833333333336,
+    "acc_task": 0.47091666666666665,
+    "kl_div": 0.00024052875938650685,
+    "task_loss": 0.035250838147476315
+}

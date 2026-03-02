@@ -1,0 +1,112 @@
+{
+    "result_patching_performance_global_iteration_0": {
+        "acc_match": 1.0,
+        "acc_task": 1.0,
+        "task_loss": 0.0005104902811581269,
+        "kl_div": 0.0021301302732899784,
+        "num_edges": 9,
+        "coef": 0.00021960261528947082
+    },
+    "result_patching_config_global_iteration_0": {
+        "0": {
+            "k": {
+                "0": [],
+                "1": [
+                    "wte"
+                ]
+            },
+            "q": {
+                "0": [],
+                "1": [
+                    "wte"
+                ]
+            },
+            "v": {
+                "0": [],
+                "1": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "mlp": [
+                "wte",
+                "wpe",
+                "attn_output-0-1"
+            ]
+        },
+        "lm_head": [
+            "wte",
+            "mlp-0"
+        ]
+    },
+    "acc_match": 0.51725,
+    "acc_task": 0.51725,
+    "kl_div": 0.13823567286133767,
+    "task_loss": 0.13658911161124707,
+    "result_patching_performance_global_iteration_1": {
+        "acc_match": 0.51725,
+        "acc_task": 0.51725,
+        "task_loss": 0.13658911161124707,
+        "kl_div": 0.13823567286133767,
+        "num_edges": 5,
+        "coef": 0.00021960261528947082
+    },
+    "result_patching_config_global_iteration_1": {
+        "0": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "q": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [],
+                "1": []
+            },
+            "mlp": [
+                "wte",
+                "wpe"
+            ]
+        },
+        "lm_head": [
+            "wte",
+            "mlp-0-wte",
+            "mlp-0-wpe"
+        ]
+    },
+    "result_patching_performance_global_iteration_2": {
+        "acc_match": 0.51725,
+        "acc_task": 0.51725,
+        "task_loss": 0.13658911161124707,
+        "kl_div": 0.13823567286133767,
+        "num_edges": 0,
+        "coef": 0.0010980130764473542
+    },
+    "result_patching_config_global_iteration_2": {
+        "0": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [],
+                "1": []
+            },
+            "mlp": [
+                "wte",
+                "wpe"
+            ],
+            "qk": {
+                "0": [],
+                "1": []
+            }
+        },
+        "lm_head": [
+            "wte",
+            "mlp-0-wte",
+            "mlp-0-wpe"
+        ]
+    }
+}

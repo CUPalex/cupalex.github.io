@@ -1,0 +1,9 @@
+1. s1 = select(q=token, k=token, op=\circled{a})	# layer 0 head 0
+2. s2 = select(q=pos, k=token, op=\circled{b})	# layer 0 head 0
+3. s3 = select(q=pos, k=pos, op=(k%3==q%3==0))	# layer 0 head 0
+4. s4 = select(k=token, op=\circled{d})
+5. a1 = aggregate(s=s1+s2+s3+s4, v=token) 	  # layer 0 head 0
+6. logits1 = project(inp=a1, op=\circled{e})
+7. logits2 = project(inp=token, op=\circled{f})
+8. prediction = softmax(logits1+
+			logits2)

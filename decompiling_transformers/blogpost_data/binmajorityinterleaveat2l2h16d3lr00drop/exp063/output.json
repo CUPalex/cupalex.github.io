@@ -1,0 +1,171 @@
+{
+    "result_patching_performance_global_iteration_0": {
+        "acc_match": 0.776875,
+        "acc_task": 0.7744583333333334,
+        "task_loss": 0.1617871056124568,
+        "kl_div": 0.0262244732119143,
+        "num_edges": 12,
+        "coef": 0.023388638097427104
+    },
+    "result_patching_config_global_iteration_0": {
+        "0": {
+            "k": {
+                "0": [
+                    "wpe"
+                ],
+                "1": []
+            },
+            "q": {
+                "0": [
+                    "wpe"
+                ],
+                "1": []
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ],
+                "1": []
+            },
+            "mlp": [
+                "wte"
+            ]
+        },
+        "1": {
+            "k": {
+                "0": [
+                    "wte"
+                ],
+                "1": []
+            },
+            "q": {
+                "0": [
+                    "mlp-0"
+                ],
+                "1": []
+            },
+            "v": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ],
+                "1": []
+            },
+            "mlp": [
+                "wpe",
+                "attn_output-0-0",
+                "attn_output-1-0"
+            ]
+        },
+        "lm_head": [
+            "mlp-1"
+        ]
+    },
+    "result_patching_performance_global_iteration_1": {
+        "acc_match": 0.009583333333333333,
+        "acc_task": 0.00975,
+        "task_loss": 0.6341613999009132,
+        "kl_div": 0.10532444715499878,
+        "num_edges": 5,
+        "coef": 0.05229858468698836
+    },
+    "result_patching_config_global_iteration_1": {
+        "0": {
+            "k": {
+                "0": [
+                    "wpe"
+                ],
+                "1": []
+            },
+            "q": {
+                "0": [
+                    "wpe"
+                ],
+                "1": []
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ],
+                "1": []
+            },
+            "mlp": []
+        },
+        "1": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "q": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [],
+                "1": []
+            },
+            "mlp": [
+                "attn_output-0-0-wte"
+            ]
+        },
+        "lm_head": [
+            "mlp-1-attn_output-0-0-wte"
+        ]
+    },
+    "result_patching_performance_global_iteration_2": {
+        "acc_match": 0.012125,
+        "acc_task": 0.012125,
+        "task_loss": 0.6190924352407455,
+        "kl_div": 0.10235316798090935,
+        "num_edges": 1,
+        "coef": 0.05229858468698836
+    },
+    "result_patching_config_global_iteration_2": {
+        "0": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ],
+                "1": []
+            },
+            "mlp": [],
+            "qk": {
+                "0": [
+                    [
+                        "wpe",
+                        "wpe"
+                    ]
+                ],
+                "1": []
+            }
+        },
+        "1": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [],
+                "1": []
+            },
+            "mlp": [
+                "attn_output-0-0-wte"
+            ],
+            "qk": {
+                "0": [],
+                "1": []
+            }
+        },
+        "lm_head": [
+            "mlp-1-attn_output-0-0-wte"
+        ]
+    },
+    "acc_match": 0.012125,
+    "acc_task": 0.012125,
+    "kl_div": 0.10235316798090935,
+    "task_loss": 0.6190924352407455
+}

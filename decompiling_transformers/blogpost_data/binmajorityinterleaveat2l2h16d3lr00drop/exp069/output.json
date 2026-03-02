@@ -1,0 +1,171 @@
+{
+    "result_patching_performance_global_iteration_0": {
+        "acc_match": 0.7186666666666667,
+        "acc_task": 0.712875,
+        "task_loss": 0.21246198654174805,
+        "kl_div": 0.03445405127480626,
+        "num_edges": 12,
+        "coef": 0.023388638097427104
+    },
+    "result_patching_config_global_iteration_0": {
+        "0": {
+            "k": {
+                "0": [
+                    "wpe"
+                ],
+                "1": []
+            },
+            "q": {
+                "0": [
+                    "wpe"
+                ],
+                "1": []
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ],
+                "1": []
+            },
+            "mlp": [
+                "wte"
+            ]
+        },
+        "1": {
+            "k": {
+                "0": [
+                    "wte"
+                ],
+                "1": []
+            },
+            "q": {
+                "0": [
+                    "mlp-0"
+                ],
+                "1": []
+            },
+            "v": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ],
+                "1": []
+            },
+            "mlp": [
+                "wpe",
+                "attn_output-0-0",
+                "attn_output-1-0"
+            ]
+        },
+        "lm_head": [
+            "mlp-1"
+        ]
+    },
+    "result_patching_performance_global_iteration_1": {
+        "acc_match": 0.006083333333333333,
+        "acc_task": 0.006166666666666667,
+        "task_loss": 0.664131628870964,
+        "kl_div": 0.11091592844575643,
+        "num_edges": 5,
+        "coef": 0.05229858468698836
+    },
+    "result_patching_config_global_iteration_1": {
+        "0": {
+            "k": {
+                "0": [
+                    "wpe"
+                ],
+                "1": []
+            },
+            "q": {
+                "0": [
+                    "wpe"
+                ],
+                "1": []
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ],
+                "1": []
+            },
+            "mlp": []
+        },
+        "1": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "q": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [],
+                "1": []
+            },
+            "mlp": [
+                "attn_output-0-0-wte"
+            ]
+        },
+        "lm_head": [
+            "mlp-1-attn_output-0-0-wte"
+        ]
+    },
+    "result_patching_performance_global_iteration_2": {
+        "acc_match": 0.023083333333333334,
+        "acc_task": 0.024583333333333332,
+        "task_loss": 0.5904007107019424,
+        "kl_div": 0.09841948918998242,
+        "num_edges": 1,
+        "coef": 0.01045971693739767
+    },
+    "result_patching_config_global_iteration_2": {
+        "0": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ],
+                "1": []
+            },
+            "mlp": [],
+            "qk": {
+                "0": [
+                    [
+                        "wpe",
+                        "wpe"
+                    ]
+                ],
+                "1": []
+            }
+        },
+        "1": {
+            "k": {
+                "0": [],
+                "1": []
+            },
+            "v": {
+                "0": [],
+                "1": []
+            },
+            "mlp": [
+                "attn_output-0-0-wte"
+            ],
+            "qk": {
+                "0": [],
+                "1": []
+            }
+        },
+        "lm_head": [
+            "mlp-1-attn_output-0-0-wte"
+        ]
+    },
+    "acc_match": 0.023083333333333334,
+    "acc_task": 0.024583333333333332,
+    "kl_div": 0.09841948918998242,
+    "task_loss": 0.5904007107019424
+}

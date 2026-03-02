@@ -1,0 +1,104 @@
+{
+    "result_patching_performance_global_iteration_0": {
+        "acc_match": 0.999625,
+        "acc_task": 0.9995416666666667,
+        "task_loss": 0.024601871967315673,
+        "kl_div": 0.00039383485549478794,
+        "num_edges": 6,
+        "coef": 8.333333333333334e-05
+    },
+    "result_patching_config_global_iteration_0": {
+        "0": {
+            "k": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "q": {
+                "0": [
+                    "wpe"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "mlp": []
+        },
+        "lm_head": [
+            "wpe",
+            "attn_output-0-0"
+        ]
+    },
+    "acc_match": 0.99925,
+    "acc_task": 0.999125,
+    "kl_div": 0.0003857882526062895,
+    "task_loss": 0.02352434681961313,
+    "result_patching_performance_global_iteration_1": {
+        "acc_match": 0.999875,
+        "acc_task": 1.0,
+        "task_loss": 0.020996520349290223,
+        "kl_div": 0.00044088732247473674,
+        "num_edges": 5,
+        "coef": 5.572835874803518e-05
+    },
+    "result_patching_config_global_iteration_1": {
+        "0": {
+            "k": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "q": {
+                "0": [
+                    "wpe"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "mlp": []
+        },
+        "lm_head": [
+            "wpe",
+            "attn_output-0-0-wte"
+        ]
+    },
+    "result_patching_performance_global_iteration_2": {
+        "acc_match": 0.99925,
+        "acc_task": 0.999125,
+        "task_loss": 0.02352434681961313,
+        "kl_div": 0.0003857882526062895,
+        "num_edges": 1,
+        "coef": 5.572835874803518e-05
+    },
+    "result_patching_config_global_iteration_2": {
+        "0": {
+            "k": {
+                "0": []
+            },
+            "v": {
+                "0": [
+                    "wte"
+                ]
+            },
+            "mlp": [],
+            "qk": {
+                "0": [
+                    [
+                        "wpe",
+                        "wte"
+                    ]
+                ]
+            }
+        },
+        "lm_head": [
+            "wpe",
+            "attn_output-0-0-wte"
+        ]
+    }
+}

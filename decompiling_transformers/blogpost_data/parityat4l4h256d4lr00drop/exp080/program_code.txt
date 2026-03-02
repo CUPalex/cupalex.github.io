@@ -1,0 +1,2 @@
+1. s1 = select(k=token, op=(k==EOS))
+2. prediction = softmax()

@@ -1,0 +1,596 @@
+{
+    "result_patching_performance_global_iteration_0": {
+        "acc_match": 0.7000833333333333,
+        "acc_task": 0.7006666666666667,
+        "task_loss": 0.01576766378711909,
+        "kl_div": 0.025022300966084002,
+        "num_edges": 32,
+        "coef": -2.9999999999999997e-05
+    },
+    "result_patching_config_global_iteration_0": {
+        "0": {
+            "k": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "q": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "mlp": [
+                "wte",
+                "wpe",
+                "attn_output-0-0"
+            ]
+        },
+        "1": {
+            "k": {
+                "0": [
+                    "wte",
+                    "wpe",
+                    "attn_output-0-0",
+                    "mlp-0"
+                ]
+            },
+            "q": {
+                "0": [
+                    "wte",
+                    "wpe",
+                    "attn_output-0-0",
+                    "mlp-0"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte",
+                    "wpe",
+                    "attn_output-0-0",
+                    "mlp-0"
+                ]
+            },
+            "mlp": [
+                "wte",
+                "wpe",
+                "attn_output-0-0",
+                "attn_output-1-0",
+                "mlp-0"
+            ]
+        },
+        "lm_head": [
+            "wte",
+            "wpe",
+            "attn_output-0-0",
+            "attn_output-1-0",
+            "mlp-0",
+            "mlp-1"
+        ]
+    },
+    "acc_match": 0.974375,
+    "acc_task": 0.9745416666666666,
+    "kl_div": 0.008933901493437589,
+    "task_loss": 0.002221546993823722,
+    "result_patching_performance_global_iteration_1": {
+        "acc_match": 0.9717916666666667,
+        "acc_task": 0.9754583333333333,
+        "task_loss": 0.002390669260639697,
+        "kl_div": 0.009211380388587714,
+        "num_edges": 82,
+        "coef": -2.9999999999999997e-05
+    },
+    "result_patching_config_global_iteration_1": {
+        "0": {
+            "k": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "q": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "mlp": [
+                "wte",
+                "wpe",
+                "attn_output-0-0-wte",
+                "attn_output-0-0-wpe"
+            ]
+        },
+        "1": {
+            "k": {
+                "0": [
+                    "wte",
+                    "wpe",
+                    "attn_output-0-0-wte",
+                    "attn_output-0-0-wpe",
+                    "mlp-0-wte",
+                    "mlp-0-wpe",
+                    "mlp-0-attn_output-0-0-wte",
+                    "mlp-0-attn_output-0-0-wpe"
+                ]
+            },
+            "q": {
+                "0": [
+                    "wte",
+                    "wpe",
+                    "attn_output-0-0-wte",
+                    "attn_output-0-0-wpe",
+                    "mlp-0-wte",
+                    "mlp-0-wpe",
+                    "mlp-0-attn_output-0-0-wte",
+                    "mlp-0-attn_output-0-0-wpe"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte",
+                    "wpe",
+                    "attn_output-0-0-wte",
+                    "attn_output-0-0-wpe",
+                    "mlp-0-wte",
+                    "mlp-0-wpe",
+                    "mlp-0-attn_output-0-0-wte",
+                    "mlp-0-attn_output-0-0-wpe"
+                ]
+            },
+            "mlp": [
+                "wte",
+                "wpe",
+                "attn_output-0-0-wte",
+                "attn_output-0-0-wpe",
+                "attn_output-1-0-wte",
+                "attn_output-1-0-wpe",
+                "attn_output-1-0-attn_output-0-0-wte",
+                "attn_output-1-0-attn_output-0-0-wpe",
+                "attn_output-1-0-mlp-0-wte",
+                "attn_output-1-0-mlp-0-wpe",
+                "attn_output-1-0-mlp-0-attn_output-0-0-wte",
+                "attn_output-1-0-mlp-0-attn_output-0-0-wpe",
+                "mlp-0-wte",
+                "mlp-0-wpe",
+                "mlp-0-attn_output-0-0-wte",
+                "mlp-0-attn_output-0-0-wpe"
+            ]
+        },
+        "lm_head": [
+            "wte",
+            "wpe",
+            "attn_output-0-0-wte",
+            "attn_output-0-0-wpe",
+            "attn_output-1-0-wte",
+            "attn_output-1-0-wpe",
+            "attn_output-1-0-attn_output-0-0-wte",
+            "attn_output-1-0-attn_output-0-0-wpe",
+            "attn_output-1-0-mlp-0-wte",
+            "attn_output-1-0-mlp-0-wpe",
+            "attn_output-1-0-mlp-0-attn_output-0-0-wte",
+            "attn_output-1-0-mlp-0-attn_output-0-0-wpe",
+            "mlp-0-wte",
+            "mlp-0-wpe",
+            "mlp-0-attn_output-0-0-wte",
+            "mlp-0-attn_output-0-0-wpe",
+            "mlp-1-wte",
+            "mlp-1-wpe",
+            "mlp-1-attn_output-0-0-wte",
+            "mlp-1-attn_output-0-0-wpe",
+            "mlp-1-attn_output-1-0-wte",
+            "mlp-1-attn_output-1-0-wpe",
+            "mlp-1-attn_output-1-0-attn_output-0-0-wte",
+            "mlp-1-attn_output-1-0-attn_output-0-0-wpe",
+            "mlp-1-attn_output-1-0-mlp-0-wte",
+            "mlp-1-attn_output-1-0-mlp-0-wpe",
+            "mlp-1-attn_output-1-0-mlp-0-attn_output-0-0-wte",
+            "mlp-1-attn_output-1-0-mlp-0-attn_output-0-0-wpe",
+            "mlp-1-mlp-0-wte",
+            "mlp-1-mlp-0-wpe",
+            "mlp-1-mlp-0-attn_output-0-0-wte",
+            "mlp-1-mlp-0-attn_output-0-0-wpe"
+        ]
+    },
+    "result_patching_performance_global_iteration_2": {
+        "acc_match": 0.974375,
+        "acc_task": 0.9745416666666666,
+        "task_loss": 0.002221546993823722,
+        "kl_div": 0.008933901493437589,
+        "num_edges": 78,
+        "coef": -5.999999999999999e-06
+    },
+    "result_patching_config_global_iteration_2": {
+        "0": {
+            "k": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte",
+                    "wpe"
+                ]
+            },
+            "mlp": [
+                "wte",
+                "wpe",
+                "attn_output-0-0-wte",
+                "attn_output-0-0-wpe"
+            ],
+            "qk": {
+                "0": [
+                    [
+                        "wte",
+                        "wte"
+                    ],
+                    [
+                        "wte",
+                        "wpe"
+                    ],
+                    [
+                        "wpe",
+                        "wte"
+                    ],
+                    [
+                        "wpe",
+                        "wpe"
+                    ]
+                ]
+            }
+        },
+        "1": {
+            "k": {
+                "0": [
+                    "wte",
+                    "wpe",
+                    "attn_output-0-0-wte",
+                    "attn_output-0-0-wpe",
+                    "mlp-0-wte",
+                    "mlp-0-wpe",
+                    "mlp-0-attn_output-0-0-wte",
+                    "mlp-0-attn_output-0-0-wpe"
+                ]
+            },
+            "v": {
+                "0": [
+                    "wte",
+                    "wpe",
+                    "attn_output-0-0-wte",
+                    "attn_output-0-0-wpe",
+                    "mlp-0-wte",
+                    "mlp-0-wpe",
+                    "mlp-0-attn_output-0-0-wte",
+                    "mlp-0-attn_output-0-0-wpe"
+                ]
+            },
+            "mlp": [
+                "wte",
+                "wpe",
+                "attn_output-0-0-wte",
+                "attn_output-0-0-wpe",
+                "attn_output-1-0-wte",
+                "attn_output-1-0-wpe",
+                "attn_output-1-0-attn_output-0-0-wte",
+                "attn_output-1-0-attn_output-0-0-wpe",
+                "attn_output-1-0-mlp-0-wte",
+                "attn_output-1-0-mlp-0-wpe",
+                "attn_output-1-0-mlp-0-attn_output-0-0-wte",
+                "attn_output-1-0-mlp-0-attn_output-0-0-wpe",
+                "mlp-0-wte",
+                "mlp-0-wpe",
+                "mlp-0-attn_output-0-0-wte",
+                "mlp-0-attn_output-0-0-wpe"
+            ],
+            "qk": {
+                "0": [
+                    [
+                        "wte",
+                        "wte"
+                    ],
+                    [
+                        "wte",
+                        "wpe"
+                    ],
+                    [
+                        "wte",
+                        "attn_output-0-0-wte"
+                    ],
+                    [
+                        "wte",
+                        "attn_output-0-0-wpe"
+                    ],
+                    [
+                        "wte",
+                        "mlp-0-wte"
+                    ],
+                    [
+                        "wte",
+                        "mlp-0-wpe"
+                    ],
+                    [
+                        "wte",
+                        "mlp-0-attn_output-0-0-wte"
+                    ],
+                    [
+                        "wte",
+                        "mlp-0-attn_output-0-0-wpe"
+                    ],
+                    [
+                        "wpe",
+                        "wte"
+                    ],
+                    [
+                        "wpe",
+                        "wpe"
+                    ],
+                    [
+                        "wpe",
+                        "attn_output-0-0-wte"
+                    ],
+                    [
+                        "wpe",
+                        "attn_output-0-0-wpe"
+                    ],
+                    [
+                        "wpe",
+                        "mlp-0-wte"
+                    ],
+                    [
+                        "wpe",
+                        "mlp-0-wpe"
+                    ],
+                    [
+                        "wpe",
+                        "mlp-0-attn_output-0-0-wte"
+                    ],
+                    [
+                        "wpe",
+                        "mlp-0-attn_output-0-0-wpe"
+                    ],
+                    [
+                        "attn_output-0-0-wte",
+                        "wte"
+                    ],
+                    [
+                        "attn_output-0-0-wte",
+                        "wpe"
+                    ],
+                    [
+                        "attn_output-0-0-wte",
+                        "attn_output-0-0-wte"
+                    ],
+                    [
+                        "attn_output-0-0-wte",
+                        "attn_output-0-0-wpe"
+                    ],
+                    [
+                        "attn_output-0-0-wte",
+                        "mlp-0-wte"
+                    ],
+                    [
+                        "attn_output-0-0-wte",
+                        "mlp-0-wpe"
+                    ],
+                    [
+                        "attn_output-0-0-wte",
+                        "mlp-0-attn_output-0-0-wte"
+                    ],
+                    [
+                        "attn_output-0-0-wte",
+                        "mlp-0-attn_output-0-0-wpe"
+                    ],
+                    [
+                        "attn_output-0-0-wpe",
+                        "wte"
+                    ],
+                    [
+                        "attn_output-0-0-wpe",
+                        "wpe"
+                    ],
+                    [
+                        "attn_output-0-0-wpe",
+                        "attn_output-0-0-wte"
+                    ],
+                    [
+                        "attn_output-0-0-wpe",
+                        "attn_output-0-0-wpe"
+                    ],
+                    [
+                        "attn_output-0-0-wpe",
+                        "mlp-0-wte"
+                    ],
+                    [
+                        "attn_output-0-0-wpe",
+                        "mlp-0-wpe"
+                    ],
+                    [
+                        "attn_output-0-0-wpe",
+                        "mlp-0-attn_output-0-0-wte"
+                    ],
+                    [
+                        "attn_output-0-0-wpe",
+                        "mlp-0-attn_output-0-0-wpe"
+                    ],
+                    [
+                        "mlp-0-wte",
+                        "wte"
+                    ],
+                    [
+                        "mlp-0-wte",
+                        "wpe"
+                    ],
+                    [
+                        "mlp-0-wte",
+                        "attn_output-0-0-wte"
+                    ],
+                    [
+                        "mlp-0-wte",
+                        "attn_output-0-0-wpe"
+                    ],
+                    [
+                        "mlp-0-wte",
+                        "mlp-0-wte"
+                    ],
+                    [
+                        "mlp-0-wte",
+                        "mlp-0-wpe"
+                    ],
+                    [
+                        "mlp-0-wte",
+                        "mlp-0-attn_output-0-0-wte"
+                    ],
+                    [
+                        "mlp-0-wte",
+                        "mlp-0-attn_output-0-0-wpe"
+                    ],
+                    [
+                        "mlp-0-wpe",
+                        "wte"
+                    ],
+                    [
+                        "mlp-0-wpe",
+                        "wpe"
+                    ],
+                    [
+                        "mlp-0-wpe",
+                        "attn_output-0-0-wte"
+                    ],
+                    [
+                        "mlp-0-wpe",
+                        "attn_output-0-0-wpe"
+                    ],
+                    [
+                        "mlp-0-wpe",
+                        "mlp-0-wte"
+                    ],
+                    [
+                        "mlp-0-wpe",
+                        "mlp-0-wpe"
+                    ],
+                    [
+                        "mlp-0-wpe",
+                        "mlp-0-attn_output-0-0-wte"
+                    ],
+                    [
+                        "mlp-0-wpe",
+                        "mlp-0-attn_output-0-0-wpe"
+                    ],
+                    [
+                        "mlp-0-attn_output-0-0-wte",
+                        "wte"
+                    ],
+                    [
+                        "mlp-0-attn_output-0-0-wte",
+                        "wpe"
+                    ],
+                    [
+                        "mlp-0-attn_output-0-0-wte",
+                        "attn_output-0-0-wte"
+                    ],
+                    [
+                        "mlp-0-attn_output-0-0-wte",
+                        "attn_output-0-0-wpe"
+                    ],
+                    [
+                        "mlp-0-attn_output-0-0-wte",
+                        "mlp-0-wte"
+                    ],
+                    [
+                        "mlp-0-attn_output-0-0-wte",
+                        "mlp-0-wpe"
+                    ],
+                    [
+                        "mlp-0-attn_output-0-0-wte",
+                        "mlp-0-attn_output-0-0-wte"
+                    ],
+                    [
+                        "mlp-0-attn_output-0-0-wte",
+                        "mlp-0-attn_output-0-0-wpe"
+                    ],
+                    [
+                        "mlp-0-attn_output-0-0-wpe",
+                        "wte"
+                    ],
+                    [
+                        "mlp-0-attn_output-0-0-wpe",
+                        "wpe"
+                    ],
+                    [
+                        "mlp-0-attn_output-0-0-wpe",
+                        "attn_output-0-0-wte"
+                    ],
+                    [
+                        "mlp-0-attn_output-0-0-wpe",
+                        "attn_output-0-0-wpe"
+                    ],
+                    [
+                        "mlp-0-attn_output-0-0-wpe",
+                        "mlp-0-wte"
+                    ],
+                    [
+                        "mlp-0-attn_output-0-0-wpe",
+                        "mlp-0-wpe"
+                    ],
+                    [
+                        "mlp-0-attn_output-0-0-wpe",
+                        "mlp-0-attn_output-0-0-wte"
+                    ],
+                    [
+                        "mlp-0-attn_output-0-0-wpe",
+                        "mlp-0-attn_output-0-0-wpe"
+                    ]
+                ]
+            }
+        },
+        "lm_head": [
+            "wte",
+            "wpe",
+            "attn_output-0-0-wte",
+            "attn_output-0-0-wpe",
+            "attn_output-1-0-wte",
+            "attn_output-1-0-wpe",
+            "attn_output-1-0-attn_output-0-0-wte",
+            "attn_output-1-0-attn_output-0-0-wpe",
+            "attn_output-1-0-mlp-0-wte",
+            "attn_output-1-0-mlp-0-wpe",
+            "attn_output-1-0-mlp-0-attn_output-0-0-wte",
+            "attn_output-1-0-mlp-0-attn_output-0-0-wpe",
+            "mlp-0-wte",
+            "mlp-0-wpe",
+            "mlp-0-attn_output-0-0-wte",
+            "mlp-0-attn_output-0-0-wpe",
+            "mlp-1-wte",
+            "mlp-1-wpe",
+            "mlp-1-attn_output-0-0-wte",
+            "mlp-1-attn_output-0-0-wpe",
+            "mlp-1-attn_output-1-0-wte",
+            "mlp-1-attn_output-1-0-wpe",
+            "mlp-1-attn_output-1-0-attn_output-0-0-wte",
+            "mlp-1-attn_output-1-0-attn_output-0-0-wpe",
+            "mlp-1-attn_output-1-0-mlp-0-wte",
+            "mlp-1-attn_output-1-0-mlp-0-wpe",
+            "mlp-1-attn_output-1-0-mlp-0-attn_output-0-0-wte",
+            "mlp-1-attn_output-1-0-mlp-0-attn_output-0-0-wpe",
+            "mlp-1-mlp-0-wte",
+            "mlp-1-mlp-0-wpe",
+            "mlp-1-mlp-0-attn_output-0-0-wte",
+            "mlp-1-mlp-0-attn_output-0-0-wpe"
+        ]
+    }
+}

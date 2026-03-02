@@ -1,0 +1,30 @@
+1. a1 = aggregate(s=[], v=token) 	  # layer 0 head 0
+2. s1 = select(q=pos, k=pos, op=\circled{a})	# layer 0 head 1
+3. a2 = aggregate(s=s1, v=token) 	  # layer 0 head 1
+4. new_token = element_wise_op(token) 	  # layer 0 mlp
+5. new_pos = element_wise_op(pos) 	  # layer 0 mlp
+6. new_a1 = element_wise_op(a1) 	  # layer 0 mlp
+7. s2 = select(q=new_pos, k=new_pos, op=(q==k))	# layer 1 head 0
+8. s3 = select(q=new_pos, k=new_a1, op=(q==k))	# layer 1 head 0
+9. s4 = select(k=token, op=\circled{b})
+10. a3 = aggregate(s=s2+s3+s4, v=new_token) 	  # layer 1 head 0
+11. a4 = aggregate(s=s2+s3+s4, v=new_pos) 	  # layer 1 head 0
+12. new_token_1 = element_wise_op(token) 	  # layer 1 mlp
+13. new_a1_1 = element_wise_op(a1) 	  # layer 1 mlp
+14. new_a2 = element_wise_op(a2) 	  # layer 1 mlp
+15. new_a3 = element_wise_op(a3) 	  # layer 1 mlp
+16. new_new_pos = element_wise_op(new_pos) 	  # layer 1 mlp
+17. logits1 = project(inp=a4, op=(inp==out))
+18. logits2 = project(inp=new_pos, op=(inp==out))
+19. logits3 = project(inp=new_token_1, op=(inp==out))
+20. logits4 = project(inp=new_a1_1, op=(inp==out))
+21. logits5 = project(inp=new_a2, op=(inp==out))
+22. logits6 = project(inp=new_a3, op=(inp==out))
+23. logits7 = project(inp=new_new_pos, op=(inp==out))
+24. prediction = softmax(logits1+
+			logits2+
+			logits3+
+			logits4+
+			logits5+
+			logits6+
+			logits7)

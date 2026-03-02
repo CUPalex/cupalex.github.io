@@ -1,0 +1,90 @@
+{
+    "result_patching_performance_global_iteration_0": {
+        "acc_match": 0.10825,
+        "acc_task": 0.10825,
+        "task_loss": 0.16937292322516442,
+        "kl_div": 0.17110473699867726,
+        "num_edges": 3,
+        "coef": 0.001
+    },
+    "result_patching_config_global_iteration_0": {
+        "0": {
+            "k": {
+                "0": []
+            },
+            "q": {
+                "0": []
+            },
+            "v": {
+                "0": []
+            },
+            "mlp": [
+                "wte"
+            ]
+        },
+        "lm_head": [
+            "wte",
+            "mlp-0"
+        ]
+    },
+    "acc_match": 0.025875,
+    "acc_task": 0.025875,
+    "kl_div": 0.17165166571736334,
+    "task_loss": 0.17013361506164074,
+    "result_patching_performance_global_iteration_1": {
+        "acc_match": 0.025875,
+        "acc_task": 0.025875,
+        "task_loss": 0.17013361506164074,
+        "kl_div": 0.17165166571736334,
+        "num_edges": 3,
+        "coef": 0.001
+    },
+    "result_patching_config_global_iteration_1": {
+        "0": {
+            "k": {
+                "0": []
+            },
+            "q": {
+                "0": []
+            },
+            "v": {
+                "0": []
+            },
+            "mlp": [
+                "wte"
+            ]
+        },
+        "lm_head": [
+            "wte",
+            "mlp-0-wte"
+        ]
+    },
+    "result_patching_performance_global_iteration_2": {
+        "acc_match": 0.025875,
+        "acc_task": 0.025875,
+        "task_loss": 0.17013361506164074,
+        "kl_div": 0.17165166571736334,
+        "num_edges": 0,
+        "coef": 1.6000000000000004e-06
+    },
+    "result_patching_config_global_iteration_2": {
+        "0": {
+            "k": {
+                "0": []
+            },
+            "v": {
+                "0": []
+            },
+            "mlp": [
+                "wte"
+            ],
+            "qk": {
+                "0": []
+            }
+        },
+        "lm_head": [
+            "wte",
+            "mlp-0-wte"
+        ]
+    }
+}

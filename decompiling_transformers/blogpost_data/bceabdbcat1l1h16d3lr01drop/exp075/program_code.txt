@@ -1,0 +1,7 @@
+1. new_token = element_wise_op(token) 	  # layer 0 mlp
+2. logits1 = project(inp=token, op=\circled{a})
+3. logits2 = project(inp=new_token, op=(inp==out))
+4. logits3 = project(op=\circled{b})
+5. prediction = sigmoid(logits1+
+			logits2+
+			logits3)

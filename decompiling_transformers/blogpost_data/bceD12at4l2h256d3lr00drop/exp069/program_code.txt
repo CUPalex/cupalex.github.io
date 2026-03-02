@@ -1,0 +1,36 @@
+1. s1 = select(q=token, k=token, op=\circled{a})	# layer 0 head 0
+2. s2 = select(q=pos, k=token, op=\circled{b})	# layer 0 head 0
+3. s3 = select(q=pos, k=pos, op=\circled{c})	# layer 0 head 0
+4. s4 = select(k=token, op=\circled{d})
+5. a1 = aggregate(s=s1+s2+s3+s4, v=token) 	  # layer 0 head 0
+6. a2 = aggregate(s=s1+s2+s3+s4, v=pos) 	  # layer 0 head 0
+7. s5 = select(q=token, k=token, op=\circled{e})	# layer 0 head 1
+8. s6 = select(q=pos, k=token, op=\circled{f})	# layer 0 head 1
+9. s7 = select(q=pos, k=pos, op=\circled{g})	# layer 0 head 1
+10. s8 = select(k=token, op=\circled{h})
+11. a3 = aggregate(s=s5+s6+s7+s8, v=token) 	  # layer 0 head 1
+12. a4 = aggregate(s=s5+s6+s7+s8, v=pos) 	  # layer 0 head 1
+13. new_a1 = element_wise_op(a1) 	  # layer 0 mlp
+14. new_a3 = element_wise_op(a3) 	  # layer 0 mlp
+15. new_new_a1 = element_wise_op(new_a1) 	  # layer 3 mlp
+16. new_new_a3 = element_wise_op(new_a3) 	  # layer 3 mlp
+17. logits1 = project(inp=new_a1, op=(inp==out))
+18. logits2 = project(inp=a2, op=\circled{i})
+19. logits3 = project(inp=new_a3, op=(inp==out))
+20. logits4 = project(inp=a4, op=\circled{j})
+21. logits5 = project(inp=token, op=\circled{k})
+22. logits6 = project(inp=pos, op=\circled{l})
+23. logits7 = project(inp=new_new_a1, op=(inp==out))
+24. logits8 = project(inp=a2, op=\circled{m})
+25. logits9 = project(inp=new_new_a3, op=(inp==out))
+26. logits10 = project(inp=a4, op=\circled{n})
+27. prediction = sigmoid(logits1+
+			logits2+
+			logits3+
+			logits4+
+			logits5+
+			logits6+
+			logits7+
+			logits8+
+			logits9+
+			logits10)
