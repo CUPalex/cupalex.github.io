@@ -989,6 +989,8 @@
         .method-panel {
             position: relative;
             min-height: 500px;
+            max-height: 700px;
+            overflow-y: auto;
         }
         
         .toggle-btn {
@@ -2388,6 +2390,25 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
             console.log('loadProgram called with:', programKey);
             console.log('dynamicProgramsData keys:', Object.keys(dynamicProgramsData));
             
+            // Show loading placeholder immediately
+            const codeDisplay = document.getElementById('codeDisplay');
+            const activationEl = document.getElementById('activationDisplay');
+            const primitiveEl = document.getElementById('primitiveDisplay');
+            const paretoContainer = document.getElementById('paretoContent') || document.getElementById('paretoContainer');
+            
+            if (codeDisplay) {
+                codeDisplay.innerHTML = '<div style="padding: 40px; text-align: center; color: #64748b;"><p style="font-size: 1.1em;">Loading program...</p></div>';
+            }
+            if (activationEl) {
+                activationEl.innerHTML = '<div class="heatmap-placeholder">Loading...</div>';
+            }
+            if (primitiveEl) {
+                primitiveEl.innerHTML = '<div class="heatmap-placeholder">Loading...</div>';
+            }
+            if (paretoContainer) {
+                paretoContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: #64748b;"><p style="font-size: 1.1em;">Loading Pareto frontier...</p></div>';
+            }
+            
             // Check if this is a dynamic program (task:experiment format)
             if (programKey.includes(':')) {
                 console.log('Loading dynamic program directly:', programKey);
@@ -2449,7 +2470,6 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
             });
             
             // Display code - parse program line numbers correctly
-            const codeDisplay = document.getElementById('codeDisplay');
             if (!codeDisplay) return;
             const rawLines = prog.code.split('\n');
             
@@ -2480,8 +2500,6 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
             }).join('');
             
             // Reset heatmaps
-            const activationEl = document.getElementById('activationDisplay');
-            const primitiveEl = document.getElementById('primitiveDisplay');
             if (activationEl) activationEl.innerHTML = `
                 <div class="heatmap-placeholder">
                     Click on a code line to view activation patterns
@@ -2507,6 +2525,12 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
         async function loadDynamicProgram(fullKey) {
             const [taskKey, expId] = fullKey.split(':');
             
+            // Show loading placeholder
+            let codeDisplay = document.getElementById('codeDisplay');
+            if (codeDisplay) {
+                codeDisplay.innerHTML = '<div style="padding: 40px; text-align: center; color: #64748b;"><p style="font-size: 1.1em;">Loading program...</p></div>';
+            }
+            
             // Load task data on-demand if not already loaded
             const taskData = await loadTaskData(taskKey);
             
@@ -2529,7 +2553,7 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
             currentProgram = fullKey;
             
             // Display code - parse program line numbers correctly
-            const codeDisplay = document.getElementById('codeDisplay');
+            codeDisplay = document.getElementById('codeDisplay');
             if (!codeDisplay) return;
             
             const rawLines = experiment.code.split('\n');
@@ -2599,7 +2623,7 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
             currentProgramCode = defaultCode;
             window.currentExperimentPath = null;
             
-            const codeDisplay = document.getElementById('codeDisplay');
+            let codeDisplay = document.getElementById('codeDisplay');
             if (codeDisplay) {
                 codeDisplay.innerHTML = `
                     <div class="code-line wrap-enabled" data-line="1">
