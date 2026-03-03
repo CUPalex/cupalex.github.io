@@ -3737,6 +3737,8 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
                         placeholderText = 'Learned MLP transformations are explained through their downstream effects. To learn about the role of this transformation, click on the logits or selection line which serves as an endpoint for this MLP transformation.';
                     } else if (opType.name === 'Aggregation' || opType.name === 'Prediction') {
                         placeholderText = 'Aggregate and Prediction operations do not require an accompanying heatmap';
+                    } else if (opType.name === 'Projection' && codeText.includes('mlp') && currentLine.includes('new')) {
+                        placeholderText = 'When MLPs cannot be split, we do not interpret the program further and do not provide the visualizations.';
                     }
                     primitiveDisplay.innerHTML = `
                         <h4 style="color: #dc2626; margin-bottom: 15px;">Line ${lineNum}</h4>
@@ -3762,6 +3764,8 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
                          placeholderText = 'Learned MLP transformations are explained together with their downstream components. We do not provide a visualization for this variable.';
                     } else if (opType.name === 'Aggregation' || opType.name === 'Prediction') {
                         placeholderText = 'Aggregate and Prediction operations do not require an accompanying heatmap';
+                    } else if (opType.name === 'Projection' && codeText.includes('mlp') && currentLine.includes('new')) {
+                        placeholderText = 'When MLPs cannot be split, we do not interpret the program further and do not provide the visualizations.';
                     }
                     activationDisplay.innerHTML = `
                         <h4 style="color: #2563eb; margin-bottom: 15px;">Line ${lineNum}</h4>
@@ -3864,6 +3868,8 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
                      placeholderText = 'Learned MLP transformations are explained together with their downstream components. We do not provide a visualization for this variable.';
                 } else if (opType.name === 'Aggregation' || opType.name === 'Prediction') {
                     placeholderText = 'Aggregate and Prediction operations do not require an accompanying heatmap';
+                } else if (opType.name === 'Projection' && codeText.includes('mlp') && currentLine.includes('new')) {
+                    placeholderText = 'When MLPs cannot be split, we do not interpret the program further and do not provide the visualizations.';
                 }
                 activationDisplay.innerHTML = `
                     <h4 style="color: #2563eb; margin-bottom: 15px;">Line ${lineNum}</h4>
@@ -3942,6 +3948,8 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
                     placeholderText = 'Learned MLP transformations are explained through their downstream effects. To learn about the role of this transformation, click on the logits or selection line which serves as an endpoint for this MLP transformation.';
                 } else if (opType.name === 'Aggregation' || opType.name === 'Prediction') {
                     placeholderText = 'Aggregate and Prediction operations do not require an accompanying heatmap';
+                } else if (opType.name === 'Projection' && codeText.includes('mlp') && currentLine.includes('new')) {
+                    placeholderText = 'When MLPs cannot be split, we do not interpret the program further and do not provide the visualizations.';
                 }
                 primitiveDisplay.innerHTML = `
                     <h4 style="color: #dc2626; margin-bottom: 15px;">Line ${lineNum}</h4>
