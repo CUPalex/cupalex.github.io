@@ -1488,10 +1488,6 @@
                 
                 <h3>Decompilation Recovers Interpretable Algorithms</h3>
                 
-                <p>
-                    In this section we show a few illustrative examples of decompiled programs. More results are <a href="#interactive">below</a>. 
-                </p>
-                
                 <h4>Most Frequent</h4>
                 <p>
                     We show a program extracted for <strong>finding the most frequent</strong> character in a string. In Line 1, the program uniformly aggregates all tokens in the input sequence. <code>a1</code> thus holds counts for each of the tokens in the context, which makes the token with the highest value in <code>a1</code> the majority token. This is why, in Line 2, <code>a1</code> gets directly projected to the vocabulary space with a diagonal projection matrix to get the answer.
@@ -1764,8 +1760,8 @@
             <h2 id="interactive">Results: Extracted Programs</h2>
             <p>
                     
-                    Select a task to see programs for the model trained on it. Click on different pruning runs <strong>on the Pareto frontier</strong> to see more or less sparse programs. Click on individual code lines to see both 
-                    <strong>activation values</strong> and <strong>explained operations</strong>. 
+                    <em>Select a task to see programs for the model trained on it. Click on different pruning runs <strong>on the Pareto frontier</strong> to see more or less sparse programs. Click on individual code lines to see both 
+                    <strong>activation values</strong> and <strong>explained operations</strong>.</em>
                 </p>
                 
             <div class="interactive-section">
