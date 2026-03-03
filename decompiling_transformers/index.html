@@ -4183,7 +4183,7 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
                     {id: 'token', label: 'token', type: 'variable'},
                     {id: 'position', label: 'position', type: 'variable'},
                     {id: 'h1', label: 'h1', type: 'head'},
-                    {id: 'mlp1', label: 'mlp1', type: 'mlp'},
+                    {id: 'mlp1', label: 'mlp', type: 'mlp'},
                     {id: 'unembed', label: 'unembed', type: 'project'}
                 ],
                 normalGraphEdges: [
@@ -4229,7 +4229,7 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
                     {id: 'token', label: 'token', type: 'variable', layer: 0},
                     {id: 'position', label: 'position', type: 'variable', layer: 0},
                     {id: 'h1', label: 'h1', type: 'head', layer: 1},
-                    {id: 'mlp1', label: 'mlp1', type: 'mlp', layer: 2},
+                    {id: 'mlp1', label: 'mlp', type: 'mlp', layer: 2},
                     {id: 'unembed', label: 'unembed', type: 'project', layer: 3}
                 ],
                 normalGraphEdges: [
@@ -4254,17 +4254,17 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
                     {id: 'tok-h1', label: 'token→V', normalNode: 'h1', layer: 1, path: ['token', 'h1']},
                     {id: 'pos-h1', label: 'pos→V', normalNode: 'h1', layer: 1, path: ['position', 'h1']},
                     // Layer 2 - mlp1 (4 nodes)
-                    {id: 'tok-h1-mlp1', label: 'token→h1→mlp1', normalNode: 'mlp1', layer: 2, path: ['token', 'h1', 'mlp1']},
-                    {id: 'pos-h1-mlp1', label: 'position→h1→mlp1', normalNode: 'mlp1', layer: 2, path: ['position', 'h1', 'mlp1']},
-                    {id: 'tok-mlp1', label: 'token→mlp1', normalNode: 'mlp1', layer: 2, path: ['token', 'mlp1']},
-                    {id: 'pos-mlp1', label: 'position→mlp1', normalNode: 'mlp1', layer: 2, path: ['position', 'mlp1']},
+                    {id: 'tok-h1-mlp1', label: 'token→V→mlp', normalNode: 'mlp1', layer: 2, path: ['token', 'h1', 'mlp1']},
+                    {id: 'pos-h1-mlp1', label: 'position→V→mlp', normalNode: 'mlp1', layer: 2, path: ['position', 'h1', 'mlp1']},
+                    {id: 'tok-mlp1', label: 'token→mlp', normalNode: 'mlp1', layer: 2, path: ['token', 'mlp1']},
+                    {id: 'pos-mlp1', label: 'position→mlp', normalNode: 'mlp1', layer: 2, path: ['position', 'mlp1']},
                     // Layer 3 - unembed (8 nodes)
-                    {id: 'tok-h1-mlp1-unembed', label: 'token→h1→mlp1→unembed', normalNode: 'unembed', layer: 3, path: ['token', 'h1', 'mlp1', 'unembed']},
-                    {id: 'pos-h1-mlp1-unembed', label: 'position→h1→mlp1→unembed', normalNode: 'unembed', layer: 3, path: ['position', 'h1', 'mlp1', 'unembed']},
-                    {id: 'tok-mlp1-unembed', label: 'token→mlp1→unembed', normalNode: 'unembed', layer: 3, path: ['token', 'mlp1', 'unembed']},
-                    {id: 'pos-mlp1-unembed', label: 'position→mlp1→unembed', normalNode: 'unembed', layer: 3, path: ['position', 'mlp1', 'unembed']},
-                    {id: 'tok-h1-unembed', label: 'token→h1→unembed', normalNode: 'unembed', layer: 3, path: ['token', 'h1', 'unembed']},
-                    {id: 'pos-h1-unembed', label: 'position→h1→unembed', normalNode: 'unembed', layer: 3, path: ['position', 'h1', 'unembed']},
+                    {id: 'tok-h1-mlp1-unembed', label: 'token→V→mlp→unembed', normalNode: 'unembed', layer: 3, path: ['token', 'h1', 'mlp1', 'unembed']},
+                    {id: 'pos-h1-mlp1-unembed', label: 'position→V→mlp→unembed', normalNode: 'unembed', layer: 3, path: ['position', 'h1', 'mlp1', 'unembed']},
+                    {id: 'tok-mlp1-unembed', label: 'token→mlp→unembed', normalNode: 'unembed', layer: 3, path: ['token', 'mlp1', 'unembed']},
+                    {id: 'pos-mlp1-unembed', label: 'position→mlp→unembed', normalNode: 'unembed', layer: 3, path: ['position', 'mlp1', 'unembed']},
+                    {id: 'tok-h1-unembed', label: 'token→V→unembed', normalNode: 'unembed', layer: 3, path: ['token', 'h1', 'unembed']},
+                    {id: 'pos-h1-unembed', label: 'position→V→unembed', normalNode: 'unembed', layer: 3, path: ['position', 'h1', 'unembed']},
                     {id: 'tok-unembed', label: 'token→unembed', normalNode: 'unembed', layer: 3, path: ['token', 'unembed']},
                     {id: 'pos-unembed', label: 'position→unembed', normalNode: 'unembed', layer: 3, path: ['position', 'unembed']}
                 ],
