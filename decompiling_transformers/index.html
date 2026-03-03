@@ -2383,7 +2383,7 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
         }
         
         // Load a program
-        function loadProgram(programKey) {
+        async function loadProgram(programKey) {
             currentProgram = programKey;
             console.log('loadProgram called with:', programKey);
             console.log('dynamicProgramsData keys:', Object.keys(dynamicProgramsData));
@@ -2391,7 +2391,7 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
             // Check if this is a dynamic program (task:experiment format)
             if (programKey.includes(':')) {
                 console.log('Loading dynamic program directly:', programKey);
-                loadDynamicProgram(programKey);
+                await loadDynamicProgram(programKey);
                 return;
             }
             
@@ -2402,7 +2402,9 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
             if (prog && prog.folder) {
                 const taskFolder = prog.folder;
                 console.log('Looking for taskFolder:', taskFolder);
-                const taskData = dynamicProgramsData[taskFolder];
+                
+                // Load task data on-demand if not already loaded
+                const taskData = await loadTaskData(taskFolder);
                 console.log('Found taskData:', taskData ? `${taskData.experiments.length} experiments` : 'null');
                 
                 if (taskData && taskData.experiments.length > 0) {
@@ -2502,9 +2504,11 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
         }
         
         // Load a dynamic program from programs_data folder
-        function loadDynamicProgram(fullKey) {
+        async function loadDynamicProgram(fullKey) {
             const [taskKey, expId] = fullKey.split(':');
-            const taskData = dynamicProgramsData[taskKey];
+            
+            // Load task data on-demand if not already loaded
+            const taskData = await loadTaskData(taskKey);
             
             if (!taskData) {
                 console.error('Task not found:', taskKey);
@@ -2636,15 +2640,15 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
         }
 
         // Render Pareto SVG for a task's experiments
-        function renderParetoForTask(taskKey) {
+        async function renderParetoForTask(taskKey) {
             const container = document.getElementById('paretoContent') || document.getElementById('paretoContainer');
             if (!container) return;
 
             // Show task info
             showTaskInfo(taskKey);
 
-            // Check if we have dynamic data for this task
-            const taskData = dynamicProgramsData[taskKey];
+            // Load task data on-demand if not already loaded
+            const taskData = await loadTaskData(taskKey);
             if (taskData && taskData.experiments && taskData.experiments.length > 0) {
                 renderDynamicPareto(taskKey, taskData);
                 return;
@@ -3313,119 +3317,184 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
         
         const PROGRAMS_DATA_FOLDER = 'blogpost_data';
         let dynamicProgramsData = {}; // Will store loaded experiment data
+        let fileTree = {}; // Will store the file tree from full_tree.json
+        let loadingTasks = new Set(); // Track which tasks are currently loading
         
-        // Load data from blogpost_data folder
-        async function loadProgramsDataFromFolder() {
+        // Load file tree from full_tree.json
+        async function loadFileTree() {
             try {
-                // Mapping of task folders to their actual experiment folders
-                const taskExperiments = {"binmajorityinterleavehash2l2h64d4lr00drop": [], "uniquebigramcopycaret2l4h256d3lr01drop": ["073", "080", "074", "075", "081", "086", "066", "069", "083", "077", "070", "084", "079", "078", "085", "071", "076", "082", "065"], "bcetomita2at1l1h16d3lr00drop": ["057", "068", "059", "070", "054", "065", "062", "063", "052", "055"], "bcetomita6at2l2h256d4lr00drop": [], "uniquebigramcopyat2l4h256d3lr01drop": ["073", "074", "075", "072", "077", "076", "064"], "uniquecopyat2l1h64d3lr01drop": ["073", "080", "074", "075", "081", "072", "077", "079", "078", "076"], "sortat1l1h256d3lr01drop": ["073", "080", "075", "081", "066", "067", "069", "083", "070", "079", "078", "071", "076", "082", "065"], "uniquereverseat2l1h64d3lr01drop": ["073", "080", "074", "075", "081", "068", "066", "067", "069", "083", "070", "084", "079", "078", "085", "071", "076", "082"], "majorityat1l4h256d3lr01drop": ["073", "080", "075", "081", "067", "069", "078", "071", "065", "063"], "countat1l4h256d4lr01drop": ["042", "045", "044", "043", "050", "051", "048", "046", "041", "047", "049", "053"], "uniquereversepct4l1h256d4lr01drop": ["073", "080", "075", "072", "068", "077", "079", "078", "076", "062", "064"], "uniquebigramcopyhash4l2h64d3lr00drop": [], "additionat4l2h64d3lr00drop": [], "bceD3at1l1h16d4lr00drop": [], "bcetomita7at2l1h16d3lr01drop": ["073", "075", "067", "069", "077", "084", "079", "085", "071", "082"], "bcetomita3at4l4h64d3lr00drop": [], "uniquecopycaret2l1h64d3lr01drop": [], "binmajorityat1l1h16d3lr01drop": ["080", "074", "075", "081", "072", "068", "066", "067", "069", "083", "084", "079", "078", "071", "076"], "bceD12at4l2h256d3lr00drop": ["073", "087", "080", "081", "086", "072", "068", "069", "083", "084", "078", "085", "076", "082"], "uniquereversehash2l4h256d4lr01drop": [], "binmajorityinterleaveat2l2h16d3lr00drop": ["073", "074", "075", "072", "068", "066", "067", "069", "077", "070", "078", "071", "076", "065", "063", "064"], "binmajorityinterleavepct4l1h64d3lr01drop": ["080", "074", "075", "081", "068", "066", "067", "083", "077", "084", "079", "078", "071", "076", "082"], "parityat4l4h256d4lr00drop": ["080", "074", "081", "072", "068", "067", "077", "070", "079", "078", "071", "076", "065", "063", "064"], "countpct2l4h256d4lr01drop": ["073", "087", "080", "074", "089", "088", "081", "086", "072", "068", "066", "067", "069", "083", "077", "070", "084", "079", "085", "071", "076", "082"], "bce01202at1l1h64d4lr00drop": ["073", "080", "075", "081", "072", "068", "067", "069", "083", "077", "084", "078", "085", "071", "082"], "bcetomita1at1l1h16d3lr00drop": [], "repeatcopyat4l4h256d3lr00drop": [], "bceaastarat1l2h16d3lr01drop": ["073", "080", "074", "081", "086", "068", "067", "069", "077", "070", "078", "085", "071", "082", "065", "063", "064"], "counthash1l4h256d3lr01drop": [], "majorityat4l4h256d3lr00drop": ["080", "074", "075", "086", "072", "068", "069", "083", "077", "070", "084", "079", "085", "071", "076"], "bceababstarat1l1h64d3lr00drop": ["073", "080", "074", "081", "072", "068", "066", "067", "083", "077", "070", "084", "079", "076", "082"], "bceabdbcat1l1h16d3lr01drop": ["080", "074", "075", "068", "066", "083", "077", "070", "079", "071", "065"], "uniquecopyhash4l4h256d4lr00drop": [], "bceaaaastarat2l1h64d4lr01drop": ["073", "080", "074", "075", "081", "066", "067", "069", "083", "070", "079", "078", "076", "082", "065", "062", "063", "064"], "bceD4at1l2h256d4lr00drop": ["080", "074", "081", "072", "067", "069", "079", "076", "082", "064"], "bcetomita4at2l2h16d3lr01drop": ["073", "075", "081", "066", "069", "083", "077", "084", "079", "071"], "bceabcdeat1l1h16d3lr00drop": ["057", "068", "061", "066", "059", "070", "053", "063", "052", "055"], "bcetomita5at2l1h64d3lr00drop": [], "bceD2at1l1h16d3lr00drop": ["073", "080", "074", "075", "081", "072", "068", "066", "067", "069", "083", "077", "070", "084", "079", "078", "071", "076", "082", "065"]};
+                const response = await fetch('full_tree.json');
+                if (!response.ok) {
+                    console.error('Failed to load file tree');
+                    return;
+                }
+                fileTree = await response.json();
+                console.log('Loaded file tree');
+            } catch (error) {
+                console.error('Error loading file tree:', error);
+            }
+        }
+        
+        // Load data for a specific task on-demand
+        async function loadTaskData(folderName) {
+            // Check if already loaded or loading
+            if (dynamicProgramsData[folderName] && dynamicProgramsData[folderName].experiments.length > 0) {
+                return dynamicProgramsData[folderName];
+            }
+            
+            if (loadingTasks.has(folderName)) {
+                // Wait for the existing load to complete
+                return new Promise((resolve) => {
+                    const checkInterval = setInterval(() => {
+                        if (!loadingTasks.has(folderName)) {
+                            clearInterval(checkInterval);
+                            resolve(dynamicProgramsData[folderName]);
+                        }
+                    }, 100);
+                });
+            }
+            
+            loadingTasks.add(folderName);
+            
+            try {
+                const taskPath = `${PROGRAMS_DATA_FOLDER}/${folderName}`;
+                dynamicProgramsData[folderName] = {
+                    experiments: []
+                };
                 
-                // Load data for each task folder
-                for (const [folderName, expNumbers] of Object.entries(taskExperiments)) {
-                    const taskPath = `${PROGRAMS_DATA_FOLDER}/${folderName}`;
-                    dynamicProgramsData[folderName] = {
-                        experiments: []
-                    };
-                    
-                    // Load only the experiments that exist for this task
-                    for (const expNum of expNumbers) {
-                        try {
-                            const expId = `exp${expNum}`;
-                            const expPath = `${taskPath}/${expId}`;
-                            
-                            // Load metrics.json
-                            const metricsResponse = await fetch(`${expPath}/metrics.json`);
-                            if (!metricsResponse.ok) {
-                                console.warn(`Failed to load metrics for ${expId} in ${folderName}`);
-                                continue;
-                            }
-                            const metrics = await metricsResponse.json();
-                            
-                            // Load program_code.txt
-                            const codeResponse = await fetch(`${expPath}/program_code.txt`);
-                            if (!codeResponse.ok) {
-                                console.warn(`Failed to load code for ${expId} in ${folderName}`);
-                                continue;
-                            }
-                            const code = await codeResponse.text();
-                            
-                            // Store experiment data
-                            dynamicProgramsData[folderName].experiments.push({
-                                id: expId,
-                                path: expPath,
-                                metrics: metrics,
-                                code: code.trim()
-                            });
-                        } catch (err) {
-                            console.warn(`Error loading ${expNum} for ${folderName}:`, err);
+                // Get experiment numbers from file tree
+                const taskFileTree = fileTree[folderName] || {};
+                const expNumbers = Object.keys(taskFileTree);
+                
+                if (expNumbers.length === 0) {
+                    console.log(`No experiments found for ${folderName}`);
+                    loadingTasks.delete(folderName);
+                    return dynamicProgramsData[folderName];
+                }
+                
+                // Load only the experiments that exist for this task
+                for (const expNum of expNumbers) {
+                    try {
+                        const expId = `exp${expNum}`;
+                        const expPath = `${taskPath}/${expId}`;
+                        
+                        // Load metrics.json
+                        const metricsResponse = await fetch(`${expPath}/metrics.json`);
+                        if (!metricsResponse.ok) {
+                            console.warn(`Failed to load metrics for ${expId} in ${folderName}`);
                             continue;
                         }
-                    }
-                    
-                    // Log success
-                    if (dynamicProgramsData[folderName].experiments.length > 0) {
-                        console.log(`Loaded ${dynamicProgramsData[folderName].experiments.length} experiments for ${folderName}`);
+                        const metrics = await metricsResponse.json();
+                        
+                        // Load program_code.txt
+                        const codeResponse = await fetch(`${expPath}/program_code.txt`);
+                        if (!codeResponse.ok) {
+                            console.warn(`Failed to load code for ${expId} in ${folderName}`);
+                            continue;
+                        }
+                        const code = await codeResponse.text();
+                        
+                        // Store experiment data
+                        dynamicProgramsData[folderName].experiments.push({
+                            id: expId,
+                            path: expPath,
+                            metrics: metrics,
+                            code: code.trim()
+                        });
+                    } catch (err) {
+                        console.warn(`Error loading ${expNum} for ${folderName}:`, err);
+                        continue;
                     }
                 }
                 
-                console.log('Loaded programs data:', dynamicProgramsData);
+                // Log success
+                if (dynamicProgramsData[folderName].experiments.length > 0) {
+                    console.log(`Loaded ${dynamicProgramsData[folderName].experiments.length} experiments for ${folderName}`);
+                }
+                
+                loadingTasks.delete(folderName);
+                return dynamicProgramsData[folderName];
             } catch (error) {
-                console.error('Error loading programs data:', error);
+                console.error(`Error loading ${folderName}:`, error);
+                loadingTasks.delete(folderName);
+                return dynamicProgramsData[folderName] || { experiments: [] };
             }
+        }
+        
+        // Check if file exists in file tree
+        function fileExistsInTree(folderName, expNum, type, filename) {
+            if (!fileTree[folderName]) return false;
+            if (!fileTree[folderName][expNum]) return false;
+            if (!fileTree[folderName][expNum][type]) return false;
+            return fileTree[folderName][expNum][type].includes(filename);
         }
         
         // Load heatmap PDF for a specific line
         async function loadHeatmapPDF(expPath, lineNum, type) {
-            try {
-                // Check if PDF exists for this line
-                const response = await fetch(`${expPath}/${type}/line_${lineNum}.pdf`, {method: 'HEAD'});
-                if (!response.ok) return null;
-                // Return the PDF URL if it exists
-                return `${expPath}/${type}/line_${lineNum}.pdf`;
-            } catch (error) {
-                console.warn(`Failed to load ${type} PDF for line ${lineNum}:`, error);
+            // Extract folder name and exp number from expPath
+            const pathParts = expPath.split('/');
+            const folderName = pathParts[pathParts.length - 2];
+            const expId = pathParts[pathParts.length - 1];
+            const expNum = expId.replace('exp', '');
+            
+            const filename = `line_${lineNum}.pdf`;
+            
+            // Check if file exists in tree before attempting to load
+            if (!fileExistsInTree(folderName, expNum, type, filename)) {
                 return null;
             }
+            
+            // File exists, return the URL
+            return `${expPath}/${type}/${filename}`;
         }
         
         // Discover all MLP files for a line in mlps folder
         // Files are named line_X_{suffix}.pdf where suffix can be numbers, letters, or special tokens
         async function discoverMLPAttentionHeads(expPath, lineNum) {
+            // Extract folder name and exp number from expPath
+            const pathParts = expPath.split('/');
+            const folderName = pathParts[pathParts.length - 2];
+            const expId = pathParts[pathParts.length - 1];
+            const expNum = expId.replace('exp', '');
+            
             const heads = [];
             
-            // Possible suffixes based on actual data structure
-            const suffixes = [
-                // Numbers 0-100 (common for logit positions)
-                ...Array.from({length: 101}, (_, i) => ({ id: `${i}`, label: `Logit ${i}` })),
-                // Letters (common for attention heads or other variants)
-                { id: 'a', label: 'Logit a' },
-                { id: 'b', label: 'Logit b' },
-                { id: 'c', label: 'Logit c' },
-                { id: 'd', label: 'Logit d' },
-                { id: 'p', label: 'Logit p' },
-                // Special tokens
-                { id: '<eos>', label: 'Logit EOS' }
-            ];
+            // Get all MLP files for this experiment from file tree
+            if (!fileTree[folderName] || !fileTree[folderName][expNum] || !fileTree[folderName][expNum]['mlps']) {
+                return heads;
+            }
             
-            // Check which files actually exist
-            const checkPromises = suffixes.map(async (suffix) => {
-                try {
-                    const url = `${expPath}/mlps/line_${lineNum}_${suffix.id}.pdf`;
-                    const response = await fetch(url, {method: 'HEAD'});
-                    if (response.ok) {
-                        return { id: suffix.id, label: suffix.label, url: url };
+            const mlpFiles = fileTree[folderName][expNum]['mlps'];
+            const linePrefix = `line_${lineNum}_`;
+            
+            // Filter files that match this line number
+            mlpFiles.forEach(filename => {
+                if (filename.startsWith(linePrefix) && filename.endsWith('.pdf')) {
+                    // Extract suffix from filename
+                    const suffix = filename.substring(linePrefix.length, filename.length - 4);
+                    
+                    // Determine label
+                    let label;
+                    if (suffix === '<eos>') {
+                        label = 'Logit EOS';
+                    } else if (/^[a-z]$/.test(suffix)) {
+                        label = `Logit ${suffix}`;
+                    } else if (/^\d+$/.test(suffix)) {
+                        label = `Logit ${suffix}`;
+                    } else {
+                        label = `Logit ${suffix}`;
                     }
-                } catch (error) {
-                    // File doesn't exist, ignore
+                    
+                    heads.push({
+                        id: suffix,
+                        label: label,
+                        url: `${expPath}/mlps/${filename}`
+                    });
                 }
-                return null;
             });
             
-            const results = await Promise.all(checkPromises);
-            
-            // Filter out null results and sort numerically where possible
-            const validHeads = results.filter(h => h !== null);
-            validHeads.sort((a, b) => {
+            // Sort numerically where possible
+            heads.sort((a, b) => {
                 const aNum = parseInt(a.id);
                 const bNum = parseInt(b.id);
                 if (!isNaN(aNum) && !isNaN(bNum)) return aNum - bNum;
@@ -3434,7 +3503,7 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
                 return a.id.localeCompare(b.id);
             });
             
-            return validHeads;
+            return heads;
         }
         
         // Render heatmap from matrix data
@@ -3990,19 +4059,29 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
                 });
             }
             
-            // Show loading indicator (no programButtons anymore, it's a dropdown)
-            
-            // Load dynamic data first
-            console.log('Loading programs data from folder...');
-            await loadProgramsDataFromFolder();
-            console.log('Finished loading programs data');
+            // Load file tree first (needed for file existence checks)
+            console.log('Loading file tree...');
+            await loadFileTree();
+            console.log('Finished loading file tree');
             
             initCategorySelector();
             updateProgramButtons();
             initMethodVisualization();
             
-            // Load insight section programs
+            // Load insight section programs immediately (they're needed for the page)
             console.log('Loading insight section programs...');
+            const insightFolders = [
+                'majorityat1l4h256d3lr01drop',
+                'uniquecopyat2l1h64d3lr01drop',
+                'sortat1l1h256d3lr01drop',
+                'bceabcdeat1l1h16d3lr00drop',
+                'bceD4at1l2h256d4lr00drop'
+            ];
+            
+            // Load insight task data
+            await Promise.all(insightFolders.map(folder => loadTaskData(folder)));
+            
+            // Now load the insight programs
             await Promise.all([
                 loadInsightProgram('majority'),
                 loadInsightProgram('uniquecopy'),
