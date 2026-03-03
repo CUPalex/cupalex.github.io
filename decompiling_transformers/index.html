@@ -1469,7 +1469,7 @@
                 <h3>When Does Decompilation Succeed?</h3>
                 
                 <p>
-                    Results show that <strong>the models that generalize well to longer input lengths, unseen during training, can be decompiled, while models that do not length-generalize cannot be decompiled</strong>. Moreover, when decompilation succeeds, we can usually vastly cut down the size of programs compared to the initial D-RASP reparameterization. In contrast, for non-length-generalizing models, pruning usually has only very limited success. Thus, interestingly, even though all models are transformers of similar sizes, generalizable models tend to be more interpretable.
+                    Results show that <strong>the models that generalize well to longer input lengths, unseen during training, can often be decompiled, while models that do not length-generalize cannot be decompiled</strong>. Moreover, when decompilation succeeds, we can usually vastly cut down the size of programs compared to the initial D-RASP reparameterization. In contrast, for non-length-generalizing models, pruning usually has only very limited success. Thus, interestingly, even though all models are transformers of similar sizes, generalizable models tend to be more interpretable.
                 </p>
                 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 2em 0;">
@@ -3736,7 +3736,9 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
                     if (opType.name === 'MLP Transform') {
                         placeholderText = 'Learned MLP transformations are explained through their downstream effects. To learn about the role of this transformation, click on the logits or selection line which serves as an endpoint for this MLP transformation.';
                     } else if (opType.name === 'Aggregation' || opType.name === 'Prediction') {
-                        placeholderText = 'Aggregate and Predicition operations do not require an accompanying heatmap';
+                        placeholderText = 'Aggregate and Prediction operations do not require an accompanying heatmap';
+                    } else if (opType.name === 'Projection' && codeText.includes('mlp') && currentLine.includes('new')) {
+                        placeholderText = 'When MLPs cannot be split, we do not interpret the program further and do not provide the visualizations.';
                     }
                     primitiveDisplay.innerHTML = `
                         <h4 style="color: #dc2626; margin-bottom: 15px;">Line ${lineNum}</h4>
@@ -3759,9 +3761,11 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
                 } else {
                     let placeholderText = 'No activation visualization available for this line';
                     if (opType.name === 'MLP Transform') {
-                         placeholderText = 'Learned MLP transformations are explained through their downstream effects. To learn about the role of this transformation, click on the logits or selection line which serves as an endpoint for this MLP transformation.';
+                         placeholderText = 'Learned MLP transformations are explained together with their downstream components. We do not provide a visualization for this variable.';
                     } else if (opType.name === 'Aggregation' || opType.name === 'Prediction') {
-                        placeholderText = 'Aggregate and Predicition operations do not require an accompanying heatmap';
+                        placeholderText = 'Aggregate and Prediction operations do not require an accompanying heatmap';
+                    } else if (opType.name === 'Projection' && codeText.includes('mlp') && currentLine.includes('new')) {
+                        placeholderText = 'When MLPs cannot be split, we do not interpret the program further and do not provide the visualizations.';
                     }
                     activationDisplay.innerHTML = `
                         <h4 style="color: #2563eb; margin-bottom: 15px;">Line ${lineNum}</h4>
@@ -3861,9 +3865,11 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
             } else {
                 let placeholderText = 'No activation visualization available for this line';
                 if (opType.name === 'MLP Transform') {
-                     placeholderText = 'Learned MLP transformations are explained through their downstream effects. To learn about the role of this transformation, click on the logits or selection line which serves as an endpoint for this MLP transformation.';
+                     placeholderText = 'Learned MLP transformations are explained together with their downstream components. We do not provide a visualization for this variable.';
                 } else if (opType.name === 'Aggregation' || opType.name === 'Prediction') {
-                    placeholderText = 'Aggregate and Predicition operations do not require an accompanying heatmap';
+                    placeholderText = 'Aggregate and Prediction operations do not require an accompanying heatmap';
+                } else if (opType.name === 'Projection' && codeText.includes('mlp') && currentLine.includes('new')) {
+                    placeholderText = 'When MLPs cannot be split, we do not interpret the program further and do not provide the visualizations.';
                 }
                 activationDisplay.innerHTML = `
                     <h4 style="color: #2563eb; margin-bottom: 15px;">Line ${lineNum}</h4>
@@ -3941,7 +3947,9 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
                 if (opType.name === 'MLP Transform') {
                     placeholderText = 'Learned MLP transformations are explained through their downstream effects. To learn about the role of this transformation, click on the logits or selection line which serves as an endpoint for this MLP transformation.';
                 } else if (opType.name === 'Aggregation' || opType.name === 'Prediction') {
-                    placeholderText = 'Aggregate and Predicition operations do not require an accompanying heatmap';
+                    placeholderText = 'Aggregate and Prediction operations do not require an accompanying heatmap';
+                } else if (opType.name === 'Projection' && codeText.includes('mlp') && currentLine.includes('new')) {
+                    placeholderText = 'When MLPs cannot be split, we do not interpret the program further and do not provide the visualizations.';
                 }
                 primitiveDisplay.innerHTML = `
                     <h4 style="color: #dc2626; margin-bottom: 15px;">Line ${lineNum}</h4>
@@ -4342,7 +4350,7 @@ Meanwhile, line 8 and 10 form the mechanism for incrementing the number by 1. Th
             },
             {
                 title: 'Step 2.2: Explaining Operations',
-                description: 'When possible, we replace <code>op</code> matrices in <code>select/project</code> operations with interpretable primitives (e.g., diagonal or lower-diagonal matrices) and <code>element_wise_ops</code> with interpretable primitive operations (e.g., sharpen, cartesian_product). We consider the replacement successful if it causes a negligible causal effect on the output.',
+                description: 'When possible, we replace <code>op</code> matrices in <code>select/project</code> operations with interpretable primitives (e.g., diagonal or lower-diagonal matrices) and <code>element_wise_ops</code> with interpretable primitive operations (e.g., sharpen, cartesian_product). We consider the replacement successful if it causes a negligible causal effect on the output. <em>In the example above, we show a program extracted from a model trained to output the most frequent character. Click on the second line of code to see the matrix for the <code>project</code> operation.</em>',
                 customLayout: 'step3',
                 prunedCode: [
                     {lineId: 1, text: 'a1 = aggregate(s=[], v=token)', comment: '# layer 0 head 0', clickable: false},
