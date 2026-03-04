@@ -1,2 +1,0 @@
-1. s1 = select(q=pos, k=token, op=(k==BOS))	# layer 0 head 2
-2. prediction = softmax()
