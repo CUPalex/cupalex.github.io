@@ -1,3 +1,0 @@
-1. s1 = select(q=token, k=token, op=\circled{a})	# layer 0 head 2
-2. s2 = select(k=token, op=\circled{b})
-3. prediction = softmax()

@@ -1,2 +1,0 @@
-1. s1 = select(k=token, op=\circled{a})
-2. prediction = softmax()
