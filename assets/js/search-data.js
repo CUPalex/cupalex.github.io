@@ -44,8 +44,11 @@ ninja.data = [{
           section: "News",},{id: "news-excited-to-start-a-new-chapter-as-a-phd-student-at-the-rtg-neuroexplicit-models-of-language-vision-and-action-under-the-supervision-of-prof-michael-hahn",
           title: 'Excited to start a new chapter as a PhD student at the RTG...',
           description: "",
-          section: "News",},{id: "news-we-propose-a-way-to-rewrite-trained-models-into-d-rasp-a-programming-language-that-mimics-transformers-and-show-that-it-works-at-least-in-the-controlled-setting-of-small-models-and-algorithmic-and-formal-languages-tasks-see-the-paper-on-arxiv-and-this-blog-post-for-more-visualizations-and-examples-of-decompiled-programs",
+          section: "News",},{id: "news-we-propose-a-way-to-rewrite-trained-models-into-d-rasp-a-programming-language-that-mimics-transformers-and-show-that-it-works-at-least-in-the-controlled-setting-of-small-models-and-algorithmic-and-formal-languages-tasks-see-the-paper-on-arxiv-and-this-blog-post-for-more-visualizations-and-examples-of-decompiled-programs-upd-accepted-to-icml-2026",
           title: 'We propose a way to rewrite trained models into D-RASP – a programming...',
+          description: "",
+          section: "News",},{id: "news-our-paper-on-mechanistic-understanding-of-how-llms-learn-in-context-when-some-of-the-demostrations-are-ambiguious-was-accepted-to-icml-2026-read-the-paper-on-arxiv",
+          title: 'Our paper on mechanistic understanding of how LLMs learn in-context when some of...',
           description: "",
           section: "News",},{
         id: 'social-email',
