@@ -24,7 +24,7 @@ I am Sasha (short for Aleksandra) Bakalova, PhD student in [LaCoCo Lab](https://
 
 I did my Masters in Language Science and Technology at [Saarland University](https://www.uni-saarland.de/en/home.html), and my undergraduate in Applied Mathematics and Computer Science at [HSE University](https://www.hse.ru/en/). I learned a lot about deep learning at [Yandex School of Data Analysis](https://dataschool.yandex.com).
 
-I want to develop interpretability methods that are faithful to models' internal computations, and use these methods to understand what solutions models learn, and what drives them toward these specific solutions. I say that I work at the intersection of mechanistic interpretability and deep learning theory, and I think of AI safety and further development of theory as the closest applications of my research.
-Currently, I am interested in finding and interpreting generalizable algorithms learned by models as correctly as possible. For more details, take a look at the [blog post](https://lacoco-lab.github.io/home/decompiling_transformers/) about our recent paper, where we extract programs from length-generalizable transformers trained on simple tasks.
+I want to develop interpretability methods that can help us understand, debug and control AI models.
+For more details about my current work, take a look at the [blog post](https://lacoco-lab.github.io/home/decompiling_transformers/) about our recent paper, where we extract programs from length-generalizable transformers trained on simple tasks.
 
 If you wish to chat, feel free to drop me an email!
