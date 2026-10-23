@@ -185,6 +185,14 @@
       {{ entry.note | strip }}
     </div>
 
+    {% if entry.description %}
+      <div class="publication-description">{{ entry.description | escape }}</div>
+    {% endif %}
+
+    {% if entry.talks %}
+      <div class="publication-talks"><strong>Talks:</strong> {{ entry.talks | markdownify | remove: '<p>' | remove: '</p>' }}</div>
+    {% endif %}
+
     <!-- Links/Buttons -->
     <div class="links">
       {% if entry.award %}

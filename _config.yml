@@ -249,6 +249,7 @@ filtered_bibtex_keywords:
     bibtex_show,
     blog,
     code,
+    description,
     google_scholar_id,
     html,
     inspirehep_id,
@@ -258,6 +259,7 @@ filtered_bibtex_keywords:
     selected,
     slides,
     supp,
+    talks,
     video,
     website,
   ]

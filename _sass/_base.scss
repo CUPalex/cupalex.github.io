@@ -787,6 +787,19 @@ footer.sticky-bottom {
         }
       }
 
+      .publication-description {
+        margin: 0.5rem 0;
+        padding-left: 0.75rem;
+        border-left: 2px solid var(--global-theme-color);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .publication-talks {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+      }
+
       .links {
         a.btn {
           color: var(--global-text-color);
