@@ -22,9 +22,8 @@ announcements:
 
 I am Sasha (short for Aleksandra) Bakalova, PhD student in [LaCoCo Lab](https://lacoco-lab.github.io/home/) at [Saarland University](https://www.uni-saarland.de/en/home.html) supervised by [Prof. Michael Hahn](https://www.mhahn.info). I am also a member of [RTG ''Neuroexplicit Models of Language, Vision, and Action''](https://www.neuroexplicit.org).
 
-I did my Masters in Language Science and Technology at [Saarland University](https://www.uni-saarland.de/en/home.html), and my undergraduate in Applied Mathematics and Computer Science at [HSE University](https://www.hse.ru/en/). I learned a lot about deep learning at [Yandex School of Data Analysis](https://dataschool.yandex.com).
+I did my Masters in Language Science and Technology at [Saarland University](https://www.uni-saarland.de/en/home.html), and my undergraduate in Applied Mathematics and Computer Science at [HSE University](https://www.hse.ru/en/). During my undergraduate, I once interned at [Google](https://google.com) as a Software Engineer, and once was a part of Student Training in Engineering Program.
 
 I want to develop interpretability methods that can help us understand, debug and control AI models.
-For more details about my current work, take a look at the [blog post](https://lacoco-lab.github.io/home/decompiling_transformers/) about our recent paper, where we extract programs from length-generalizable transformers trained on simple tasks.
 
 If you wish to chat, feel free to drop me an email!
